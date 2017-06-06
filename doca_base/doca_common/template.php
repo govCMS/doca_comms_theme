@@ -16,16 +16,6 @@ include_once dirname(__FILE__) . '/includes/common_templates.func.inc';
 include_once dirname(__FILE__) . '/includes/helper.inc';
 
 /**
- * Include preprocess functions.
- */
-include_once dirname(__FILE__) . '/includes/preprocess.inc';
-
-/**
- * Include theme hook functions.
- */
-include_once dirname(__FILE__) . '/includes/theme.inc';
-
-/**
  * Clear any previously set element_info() static cache.
  *
  * If element_info() was invoked before the theme was fully initialized, this
@@ -34,6 +24,16 @@ include_once dirname(__FILE__) . '/includes/theme.inc';
  * @see https://www.drupal.org/node/2351731
  */
 drupal_static_reset('element_info');
+
+/**
+ * Include preprocess functions.
+ */
+include_once dirname(__FILE__) . '/includes/preprocess.inc';
+
+/**
+ * Include theme hook functions.
+ */
+include_once dirname(__FILE__) . '/includes/theme.inc';
 
 /**
  * Include alter functions.
