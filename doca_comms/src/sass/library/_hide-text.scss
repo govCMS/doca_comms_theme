@@ -1,8 +1,0 @@
-
-%hide-text,
-.hide-text {
-  @extend %underline-on-hover__never;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}

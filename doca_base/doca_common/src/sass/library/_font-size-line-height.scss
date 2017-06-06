@@ -1,4 +1,0 @@
-@mixin font-size-line-height($font-size, $line-height-ratio: $base-line-height-ratio) {
-  font-size: $font-size;
-  line-height: $font-size * $line-height-ratio;
-}
