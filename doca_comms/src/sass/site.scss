@@ -4,9 +4,11 @@
  * ======================
  */
 
-@import 'init';
+@import 'variables';
 
-@import 'library/*';
+@import '../../../doca_base/doca_common/src/sass/init';
+
+@import '../../../doca_base/doca_common/src/sass/library/*';
 
 @import 'base/**/*';
 
