@@ -1,0 +1,52 @@
+// Breadcrumb
+//
+// Markup: breadcrumb.html
+//
+// Styleguide components.breadcrumb
+
+.breadcrumb,
+%breadcrumb {
+
+  @extend %font__small;
+
+  &__list {
+    @extend %list-inline;
+    @extend %list-unstyled;
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__link {
+    @extend %underline-on-hover;
+    color: color(grey-dark);
+    margin: 0;
+  }
+
+  &__last {
+    color: color(dark);
+    font-weight: 500;
+  }
+
+  &__separator {
+    padding-left: 1rem;
+    height: 23px;
+    width: 29px;
+    display: inline-block;
+    padding-top: 5px;
+    fill: color(grey-dark);
+  }
+
+}
+
+
+// Fugly
+
+.breadcrumb a {
+  @extend %breadcrumb__link;
+}
+
+.breadcrumb li:last-of-type {
+  @extend %breadcrumb__last;
+}

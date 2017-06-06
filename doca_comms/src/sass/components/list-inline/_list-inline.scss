@@ -1,0 +1,81 @@
+// List Inline
+//
+// Markup: list-inline.html
+//
+// Styleguide 3.26
+
+
+@mixin list-inline {
+  @extend %list-inline;
+}
+
+
+%list-inline,
+.list-inline {
+  margin: 0;
+  padding: 0;
+  li {
+    @extend %list-inline__item;
+  }
+
+  &--inline {
+    @extend %list-inline;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.list-inline__wrapper,
+%list-inline__wrapper {
+  &,
+  ul,
+  ol {
+    @extend %list-inline;
+  }
+}
+
+%list-inline__item,
+.list-inline__item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 1rem 1rem 0;
+
+  .list-inline--inline & {
+    margin-bottom: 0;
+  }
+}
+
+%list-inline__title,
+.list-inline__title {
+  @extend %font__medium;
+  display: inline-block;
+  vertical-align: middle;
+  color: color(grey-dark);
+  margin-right: 1rem;
+}
+
+%list-inline--even-padding,
+.list-inline--even-padding {
+  @extend %list-inline;
+
+  li {
+    @extend %list-inline__item--even-padding;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+%list-inline__item--even-padding,
+.list-inline__item--even-padding {
+  @extend %list-inline__item;
+  margin: 0 .5rem;
+}
+
+%list-inline__wrapper--even-padding,
+.list-inline__wrapper--even-padding {
+  ul {
+    @extend %list-inline--even-padding;
+  }
+}

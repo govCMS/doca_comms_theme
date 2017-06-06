@@ -1,0 +1,25 @@
+// Max-width
+//
+// Markup: max-width.html
+//
+// Styleguide components.max-width
+
+%max-width__large,
+.max-width__large {
+  max-width: $large;
+}
+
+%max-width__medium,
+.max-width__medium {
+  max-width: $medium;
+}
+
+%max-width__small,
+.max-width__small {
+  max-width: $small;
+}
+
+%max-width__content,
+.max-width__content {
+  max-width: 840px;
+}

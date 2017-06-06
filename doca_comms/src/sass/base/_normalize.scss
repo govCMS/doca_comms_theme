@@ -1,0 +1,721 @@
+/**
+ * @file
+ * Normalize.css is intended to be used as an alternative to CSS resets.
+ *
+ * This file is a slight fork of these original sources:
+ * - normalize.css v3.0.2 | MIT License | git.io/normalize
+ * - normalize.scss v3.0.2 | MIT/GPLv2 License | bit.ly/normalize-scss
+ *
+ * It's suggested that you read the normalize.scss file and customise it to meet
+ * your needs, rather then including the file in your project and overriding the
+ * defaults later in your CSS.
+ * @see http://nicolasgallagher.com/about-normalize-css/
+ *
+ * Also: @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
+ *       @see http://snook.ca/archives/html_and_css/no_css_reset/
+ */
+
+
+* { @include box-sizing(border-box); }
+
+/**
+ * Establish a vertical rhythm unit using $base-font-size, $base-line-height,
+ * and $rhythm-unit variables. Also, correct text resizing oddly in IE 6/7 when
+ * body `font-size` is set using `em` units.
+ */
+
+@include establish-baseline();
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: 'Roboto', sans-serif; /* 1 */
+  font-weight: 300;
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  height: 100%;
+  // Show a background image that can be used to debug your alignments.
+  // @include debug-vertical-alignment();
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: color(dark);
+  height: 100%;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  @if support-legacy-browser(ie, '9') {
+    display: inline-block; /* 1 */
+  }
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+@if support-legacy-browser(ie, '10') {
+  /**
+   * Address `[hidden]` styling not present in IE 8/9/10.
+   */
+
+  [hidden] {
+    display: none;
+  }
+}
+
+/**
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+template {
+  display: none;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+// Text-level semantics
+//
+// Markup: text.html
+//
+// Weight: 1
+//
+// Styleguide: base.text
+
+/**
+ * To achieve a pleasant vertical rhythm, we use Compass' Vertical Rhythm mixins
+ * so that the line height of our base font becomes the basic unit of vertical
+ * measurement. We use multiples of that unit to set the top and bottom margins
+ * for our block level elements and to set the line heights of any fonts.
+ * For more information, see http://24ways.org/2006/compose-to-a-vertical-rhythm
+ */
+
+// Abbreviation / Acroynym
+//
+// Stylized implementation of HTML's <code>&lt;abbr&gt;</code> element for
+// abbreviations and acronyms to show the expanded version on hover.
+// Abbreviations with a <code>title</code> attribute have a light dotted bottom
+// border and a help cursor on hover, providing additional context on hover.
+//
+// Markup: text-abbr.html
+//
+// Styleguide: base.text.abbr
+
+abbr[title] {
+  /* Address styling not present in IE 8/9/10/11, Safari, and Chrome. */
+  border-bottom: 1px dotted;
+}
+
+// Bold
+//
+// For emphasizing a snippet of text with a heavier font-weight. Either the
+// &lt;strong&gt; tag or the &lt;b&gt; tag can be used.
+//
+// Feel free to use <code>&lt;b&gt;</code> in HTML5. <code>&lt;b&gt;</code> is
+// meant to highlight words or phrases without conveying additional importance.
+//
+// Markup: text-b.html
+//
+// Styleguide: base.text.b
+
+b,
+strong {
+  /* Address style set to `bolder` in Firefox 4+, Safari, and Chrome. */
+  font-weight: normal;
+}
+
+// Cite
+//
+// The cite element represents a reference to a creative work.
+//
+// Markup: text-cite.html
+//
+// Styleguide: base.text.cite
+
+// Code
+//
+// The <code>code</code> element represents a fragment of computer code. The
+// <code>var</code> element represents a variable. The <code>samp</code> element
+// represents (sample) output from a program or computing system. The
+// <code>kbd</code> element represents user input (typically keyboard input.)
+//
+// Markup: text-code.html
+//
+// Styleguide: base.text.code
+
+code,
+kbd,
+samp,
+var {
+  @extend %monospace;
+}
+
+// Deleted text
+//
+// For indicating blocks of text that have been deleted use the
+// <code>&lt;del&gt;</code> tag.
+//
+// Markup: text-del.html
+//
+// Styleguide: base.text.del
+
+del {
+}
+
+// Definition
+//
+// The dfn element represents the defining instance of a term.
+//
+// Markup: text-dfn.html
+//
+// Styleguide: base.text.dfn
+
+dfn {
+  /* Address styling not present in Safari and Chrome. */
+  font-style: italic;
+}
+
+// Italics
+//
+// For emphasizing a snippet of text with italics. Either the &lt;em&gt; tag or
+// the &lt;i&gt; tag can be used.
+//
+// Feel free to use <code>&lt;i&gt;</code> in HTML5. <code>&lt;i&gt;</code> is
+// meant to convey voice, technical terms, etc.
+//
+// Markup: text-i.html
+//
+// Styleguide: base.text.i
+
+i,
+em {
+}
+
+// Inserted text
+//
+// For indicating additions to the document use the <code>&lt;ins&gt;</code>
+// tag.
+//
+// Markup: text-ins.html
+//
+// Styleguide: base.text.ins
+
+ins {
+}
+
+// Marked text
+//
+// For highlighting a run of text due to its relevance in another context, use
+// the <code>&lt;mark&gt;</code> tag.
+//
+// Markup: text-mark.html
+//
+// Styleguide: base.text.mark
+
+@if support-legacy-browser(ie, '9') {
+  mark {
+    /* Address styling not present in IE 8/9. */
+    background: color(yellow);
+  }
+}
+
+// Quote
+//
+// The <code>q</code> element represents an inline quote from another source.
+// Longer quotes should use the <code>blockquote</code> element.
+//
+// Markup: text-q.html
+//
+// Styleguide: base.text.q
+
+q {
+}
+
+// Strikethrough text
+//
+// For indicating blocks of text that are no longer relevant use the
+// <code>&lt;s&gt;</code> tag.
+//
+// Markup: text-s.html
+//
+// Styleguide: base.text.s
+
+s {
+}
+
+// Small text
+//
+// For de-emphasizing inline or blocks of text, use the
+// <code>&lt;small&gt;</code> tag to set text at 80% the size of the parent.
+//
+// Markup: text-small.html
+//
+// Styleguide: base.text.small
+
+small {
+  /* Address inconsistent and variable font size in all browsers. */
+  font-size: 80%;
+}
+
+// Superscript / Subscript
+//
+// The &lt;sup&gt; tag represents a superscript and the &lt;sub&gt; tag
+// represents a subscript.
+//
+// Markup: text-sub.html
+//
+// Styleguide: base.text.sub
+
+sub,
+sup {
+  /* Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+// Underlined text
+//
+// To underline text use the <code>&lt;u&gt;</code> tag. Not recommended since
+// underlines are used by web browsers to style hyperlinks.
+//
+// Markup: text-u.html
+//
+// Styleguide: base.text.u
+
+u {
+}
+
+// Scalable vector
+//
+// A &lt;svg&gt; tag represents an image encoded as a Scalable Vector Graphic.
+//
+// Markup: embedded-svg.html
+//
+// Styleguide: base.embedded.svg
+
+svg:not(:root) {
+  /* Correct overflow not hidden in IE 9/10/11. */
+  overflow: hidden;
+}
+
+// Remove padding from bottom menu in IE 11
+div.migration-assurance-menu {
+  .field-name-field-migration-assurance-menu {
+    .steps-section {  // 1,2,3,4 Section
+      .step_footer {
+        padding: 0.4em 0 1.4em 0;
+      }
+    }
+  }
+}
+
+/* Forms
+   ========================================================================== */
+
+// Forms
+//
+// Weight: 2
+//
+// Styleguide: base.forms
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ * 4. Address `font-family` inconsistency between `textarea` and other form in IE 7
+ * 5. Improve appearance and consistency with IE 6/7.
+ * 6. Keep form elements constrained in their containers.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+  max-width: 100%; /* 6 */
+  //@include box-sizing(border-box); /* 6 */
+}
+
+// Buttons
+//
+// Buttons built with the &lt;button&gt; tag are the most flexible for styling
+// purposes. But &lt;input&gt; tags with <code>type</code> set to
+// <code>submit</code>, <code>image</code>, <code>reset</code>, or
+// <code>button</code> are also supported.
+//
+// Markup: forms-button.html
+//
+// Styleguide: base.forms.button
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+// Inputs
+//
+// Input fields are mostly text-based inputs that include the HTML5 types:
+// <code>text</code>, <code>search</code>, <code>tel</code>, <code>url</code>,
+// <code>email</code>, <code>password</code>, <code>date</code>,
+// <code>time</code>, <code>number</code>, <code>range</code>,
+// <code>color</code>, and <code>file</code>.
+//
+// Markup: forms-input.html
+//
+// Styleguide: base.forms.input
+
+input,
+%input {
+  height: $input-height;
+  line-height: $input-height;
+  padding: 0 11px;
+
+  &:focus,
+  &.is-focus,
+  &-is-focus {
+    outline: 0;
+  }
+
+  &[type="color"],
+  &--no-padding {
+    padding: 0;
+  }
+
+  &[type="text"],
+  &[type="search"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="email"],
+  &[type="password"],
+  &[type="date"],
+  &[type="time"],
+  &[type="number"],
+  &[type="range"],
+  &--wide {
+    width: 100%;
+
+    @include bp-nq($medium) {
+      width: auto;
+      min-width: 400px;
+    }
+  }
+}
+
+// Checkboxes
+//
+// If an &lt;input&gt; element has the <code>type="checkbox"</code> attribute
+// set, the form field is displayed as a checkbox.
+//
+// Markup: forms-input-checkbox.html
+//
+// Styleguide: base.forms.input-checkbox
+
+// Radio buttons
+//
+// If an &lt;input&gt; element has the <code>type="radio"</code> attribute
+// set, the form field is displayed as a radio button.
+//
+// Markup: forms-input-radio.html
+//
+// Styleguide: base.forms.input-radio
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  height: auto;
+  padding: 0; /* 2 */
+}
+
+input[type="radio"] {
+  margin-left: 1px;
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+//  @include box-sizing(content-box); /* 2 */
+
+  /**
+   * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+   * Safari (but not Chrome) clips the cancel button when the search input has
+   * padding (and `textfield` appearance).
+   */
+
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+// Fieldsets
+//
+// The fieldset element groups a set of form fields, optionally under a common
+// name given by the legend element.
+//
+// Markup: forms-fieldset.html
+//
+// Styleguide: base.forms.fieldset
+
+fieldset {
+  /* Define consistent border, margin, and padding. */
+  margin: 0 2px 1em 0;
+  padding: 0;
+  border: none;
+}
+
+// Labels
+//
+// The &lt;label&gt; tag represents a caption of a form field. The label can be
+// associated with a specific form control by using the <code>for</code>
+// attribute or by putting the form control inside the label element itself.
+//
+// Markup: forms-label.html
+//
+// Styleguide: base.forms.label
+
+label {
+  display: block;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+  border: none;
+  margin-left: -5px;
+  padding: 0 5px; /* 2 */
+
+  a:link,
+  a:visited,
+  a:active,
+  a:hover,
+  a:focus {
+    color: inherit;
+  }
+}
+
+// Select
+//
+// The &lt;select&gt; tag represents a form field for selecting amongst a set of
+// options.
+//
+// Markup: forms-select.html
+//
+// Styleguide: base.forms.select
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+select {
+  height: $input-height;
+  padding: 0 11px;
+  margin-left: 1px;
+  text-transform: none;
+
+  &[multiple] {
+    height: auto;
+  }
+
+}
+
+
+// Text areas
+//
+// The &lt;textarea&gt; tag represents a multiline plain text form field.
+//
+// Markup: forms-textarea.html
+//
+// Styleguide: base.forms.textarea
+
+textarea {
+  /* Remove default vertical scrollbar in IE 8/9/10/11. */
+  overflow: auto;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+
+  option {
+  }
+}
+
+
+/* Tables
+   ========================================================================== */
+
+// Tables
+//
+// The table element displays tabular data in rows, columns, and cells.
+//
+// Markup: table.html
+//
+// Weight: 2
+//
+// Styleguide: base.table
+
+table {
+  @include output-rhythm(margin, 0 0 rhythm(1));
+  /* Remove most spacing between table cells. */
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* Prevent cramped-looking tables */
+  width: 100%;
+  /* Add vertical rhythm margins. */
+}
+
+caption {
+  padding: 10px 15px;
+}
+
+td {
+  padding: .5em .7em;
+}
+
+th {
+  padding: .5em .7em;
+  background-color: color(grey-off-white);
+  font-weight: normal;
+  text-align: left;
+
+  a,
+  img {
+    display: inline-block;
+  }
+}

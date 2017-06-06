@@ -1,0 +1,21 @@
+@mixin underline-on-hover {
+  text-decoration: none;
+  border-color: transparent;
+
+  &:hover,
+  &:focus {
+    border-color: currentColor;
+  }
+}
+
+@mixin underline-on-hover__never {
+  border-color: transparent;
+
+  &,
+  &:link {
+    &:hover,
+    &:focus {
+      border-color: transparent;
+    }
+  }
+}

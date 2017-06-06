@@ -1,0 +1,80 @@
+// Statistic
+//
+// Large statistic item
+//
+// Markup: statistic.html
+//
+// Styleguide: components.statistic
+
+@import 'layouts/layout-three-column/layout-three-column';
+
+.statistic__wrapper,
+%statistic__wrapper {
+  @extend %layout-three-column;
+  clear: both;
+}
+
+.statistic__item,
+%statistic__item {
+  @extend %layout-three-column__item;
+  text-align: left;
+  @include breakpoint($medium) {
+    text-align: center;
+  }
+  @include breakpoint($large) {
+    margin-bottom: 0;
+  }
+}
+
+.statistic__item__max-width,
+%statistic__item__max-width {
+  @include breakpoint($medium) {
+    max-width: 200px;
+    display: inline-block;
+  }
+}
+
+.statistic__img,
+%statistic__img {
+  padding-bottom: 2rem;
+  width: 40%;
+  float: left;
+  margin-right: 1rem;
+  text-align: center;
+
+  @include breakpoint($medium) {
+    width: 100%;
+    float: none;
+    margin-right: 0;
+  }
+
+  img {
+    width: 100%;
+    height: 112px;
+  }
+
+}
+
+.statistic__title,
+%statistic__title {
+  line-height: 4rem;
+  font-weight: 500;
+  font-size: 3rem;
+
+  @include breakpoint($medium) {
+    font-size: 4.1875rem;
+  }
+}
+
+.statistic__desc,
+%statistic__desc {
+  color: color(grey-dark);
+  @include breakpoint($medium) {
+    font-size: 1.5rem;
+    margin: 0.5rem auto;
+    max-width: 320px;
+  }
+  p {
+    margin: 0;
+  }
+}

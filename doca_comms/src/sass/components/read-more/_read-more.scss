@@ -1,0 +1,60 @@
+// Read More
+//
+// Markup: read-more.html
+//
+// Styleguide components.read-more
+
+@import 'components/font/font';
+@import 'components/subsite-palette/subsite-palette';
+@import 'components/underline-on-hover/underline-on-hover';
+@import 'base/links/links';
+
+.read-more,
+%read-more {
+  @extend %underline-on-hover;
+  @extend %link__border--thick;
+  @include font-size-line-height(0.95rem);
+  padding-top: 1rem;
+  display: inline-block;
+  fill: currentColor;
+  font-weight: 500;
+
+  @include breakpoint($medium) {
+    font-size: $medium-font-size;
+  }
+
+  svg {
+    padding-left: .25rem;
+    padding-bottom: .10rem;
+    height: 15px;
+    width: 16px;
+
+    @include breakpoint($medium) {
+      vertical-align: baseline;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.read-more--heading,
+%read-more--heading {
+  @extend %read-more;
+  margin-bottom: 1rem;
+  padding-top: 0;
+  color: color(dark) !important;
+  svg {
+    display: none;
+  }
+}
+
+
+// Paletting
+
+.read-more {
+  @each $subsite, $palette in $subsite-palette {
+    .subsite__#{$subsite} & {
+      @include subsite-link-color($subsite);
+    }
+  }
+}
+

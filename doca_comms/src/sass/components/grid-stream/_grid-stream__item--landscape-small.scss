@@ -1,0 +1,75 @@
+// Grid Stream Item (Landscape small)
+//
+// The Landscape variant with a square image, used for Promotional content
+//
+// Markup: grid-stream__item--landscape-small.html
+//
+// --has-image - with image modifier
+//
+// Styleguide components.grid-stream__item--landscape-small
+
+@import 'components/grid-stream/grid-stream';
+
+.grid-stream__item--landscape-small,
+%grid-stream__item--landscape-small {
+  @extend %grid-stream__item;
+  &__right {
+    display: none;
+  }
+  &__left {
+    @extend %grid-stream__item__left;
+    float: none;
+    width: auto;
+
+    // Polls don't have read more links so they don't need extra spacing.
+    .node-poll & {
+      padding-bottom: 1rem !important;
+    }
+  }
+
+  .grid-stream__description {
+    padding-bottom: 1rem;
+    @include breakpoint($x-large) {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.grid-stream__item--landscape-small--has-image,
+%grid-stream__item--landscape-small--has-image {
+  @extend %grid-stream__item;
+
+  .grid-stream__item--landscape-small__left {
+    @include breakpoint($medium) {
+      float: left;
+      width: 67.25%;
+    }
+  }
+  .grid-stream__item--landscape-small__right {
+    @extend %grid-stream__item__right;
+    display: block;
+    float: none;
+    width: auto;
+    @include breakpoint($medium) {
+      float: right;
+      width: 32.75%;
+      text-align: right;
+    }
+  }
+  .grid-stream__description {
+    @extend %show-at__medium;
+  }
+}
+
+.grid-stream__item--landscape-small--has-image-description,
+%grid-stream__item--landscape-small--has-image-description {
+  @extend %grid-stream__item--landscape-small--has-image;
+
+  .grid-stream__description {
+    display: block !important;
+    padding-bottom: 1rem;
+    @include breakpoint($x-large) {
+      padding-bottom: 0;
+    }
+  }
+}

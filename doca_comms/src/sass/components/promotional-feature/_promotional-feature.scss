@@ -1,0 +1,51 @@
+// Promotional Feature
+//
+// Markup: promotional-feature.html
+//
+// .promotional-feature--dark - A dark background variant.
+//
+// Styleguide components.promotional-feature
+
+@import 'components/palette/palette';
+@import 'components/spacer/spacer';
+
+.promotional-feature,
+%promotional-feature {
+  @extend %palette__light-grey;
+
+  &--dark {
+    @extend %palette__white-on-dark;
+    @extend %spacer;
+    @include breakpoint(960px) {
+      padding: 6rem 1rem;
+    }
+  }
+}
+
+.promotional-feature__item,
+%promotional-feature__item {
+  @extend %spacer--large;
+  @extend %layout-max--sm-med-lrg;
+  overflow: hidden;
+}
+
+.promotional-feature__title,
+%promotional-feature__title {
+  @extend %heading--3;
+  margin-bottom: .5rem;
+}
+
+.promotional-feature__left,
+%promotional-feature__left {
+  @extend %layout-two-thirds__sidebar;
+  margin-bottom: 1rem;
+  @include breakpoint($medium) {
+    margin-bottom: 0;
+  }
+}
+
+.promotional-feature__right,
+%promotional-feature__right {
+  @extend %layout-two-thirds__main;
+  @extend %max-width__medium;
+}

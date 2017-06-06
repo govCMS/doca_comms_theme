@@ -1,0 +1,138 @@
+// Palette
+//
+// Markup: palette.html
+//
+// Styleguide components.palette
+
+@import 'components/color-contrast/color-contrast';
+
+@function palette($maps, $keys) {
+  $key: nth($keys, 1);
+  $length: length($keys);
+  $value: map-get($maps, $key);
+  @if ($length > 1) {
+    $rest: ();
+    @for $i from 2 through $length {
+      $rest: append($rest, nth($keys, $i));
+    }
+    @return palette($value, $rest)
+  } @else {
+    @if $value {
+      @return $value;
+    } @else {
+      @return false;
+    }
+  }
+}
+
+// Output colours.
+@mixin palette($map, $key) {
+
+  $background: palette($map, $key background);
+  $foreground: null;
+  $foreground-hover: null;
+
+  @if palette($map, $key foreground) == false {
+    $foreground: color-contrast($background);
+  } @else {
+    $foreground: palette($map, $key foreground);
+  }
+
+  @if palette($map, $key foreground-hover) == false {
+    $foreground-hover: color-contrast($background);
+  } @else {
+    $foreground-hover: palette($map, $key foreground-hover);
+  }
+
+  background-color: $background;
+  color: $foreground;
+
+  a {
+    color: $foreground;
+
+    &:focus,
+    &:hover {
+      color: $foreground-hover;
+    }
+  }
+}
+
+$palette-main: (
+  grey-off-white: (
+    background: color(grey-off-white),
+  ),
+  red: (
+    background: color(red),
+  ),
+  white: (
+    background: color(white),
+  ),
+  grey-on-grey: (
+    background: color(grey-off-white),
+    foreground: color(grey-dark),
+    foreground-hover: color(black),
+  ),
+  red-on-grey: (
+    background: color(grey-off-white),
+    foreground: color(red),
+    foreground-hover: color(black),
+  ),
+  blue-on-grey: (
+    background: color(grey-off-white),
+    foreground: color(blue),
+    foreground-hover: color(black),
+  ),
+  white-on-dark: (
+    background: #0f405e,
+    foreground: color(white),
+    foreground-hover: color(white),
+  ),
+  white-on-grey: (
+    background: #616161,
+    foreground: color(white),
+    foreground-hover: color(white),
+  ),
+  pale-grey: (
+    background: #f4f4f4,
+  )
+);
+
+.palette__light-grey,
+%palette__light-grey {
+  @include palette($palette-main, grey-off-white);
+}
+
+.palette__red,
+%palette__red {
+  @include palette($palette-main, red);
+}
+
+.palette__grey-on-grey,
+%palette__grey-on-grey {
+  @include palette($palette-main, grey-on-grey);
+}
+
+.palette__red-on-grey,
+%palette__red-on-grey {
+  @include palette($palette-main, red-on-grey);
+}
+
+.palette__blue-on-grey,
+%palette__blue-on-grey {
+  @include palette($palette-main, blue-on-grey);
+}
+
+.palette__white-on-dark,
+%palette__white-on-dark {
+  @include palette($palette-main, white-on-dark);
+}
+
+.palette__white-on-grey,
+%palette__white-on-grey {
+  @include palette($palette-main, white-on-grey);
+}
+
+.palette__pale-grey,
+%palette__pale-grey {
+  @include palette($palette-main, pale-grey);
+}

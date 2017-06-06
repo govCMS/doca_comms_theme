@@ -1,0 +1,53 @@
+@import 'components/palette/palette';
+
+$subsite-palette: (
+  stay-smart-online: (
+    border:       #f26b21,
+    foreground:   #b33f03,
+    hover:      darken(#b33f03, 10%),
+    background:   #cd4902,
+    header-arrow: #facb52,
+    background-light: #cd4902,
+    background-dark: #8d320d,
+  ),
+  digital-business: (
+    border:       #004385,
+    foreground:   #004385,
+    hover:      darken(#004385, 10%),
+    background:   #004385,
+    header-arrow: #51a8fb,
+    background-light: #00509d,
+    background-dark: #002850,
+  ),
+  bureau-communications-research: (
+    border:       #ffcb04,
+    foreground:   #aa0f14,
+    hover:      darken(#aa0f14, 10%),
+    background:   #e2e2e2,
+    header-arrow: #aa0f14,
+    background-light: #feca30,
+    background-dark: #f59534,
+  ),
+  communications: (
+    border:       #5abde9,
+    foreground:   #3192bc,
+    hover:      darken(#3192bc, 15%),
+    background-light: #00509d,
+    background-dark: #002850,
+  ),
+  alert: (
+    border:       #0e669c,
+    foreground:   #0e669c,
+    hover:      darken(#0e669c, 10%),
+    background-light: #f26b21,
+    background-dark: #7b2c01,
+  ),
+);
+
+@mixin subsite-link-color($subsite) {
+  color: palette($subsite-palette, $subsite foreground);
+  &:focus,
+  &:hover {
+    color: palette($subsite-palette, $subsite hover);
+  }
+}

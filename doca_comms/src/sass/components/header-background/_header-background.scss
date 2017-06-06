@@ -1,0 +1,25 @@
+// Header background
+//
+// Background image for the header
+//
+// Markup: header-background.html
+//
+// Styleguide components.header-background
+
+%header-background,
+.header-background {
+  @include background-image('bg--header-inner.svg', 100%, 20%);
+
+  @include breakpoint($large) {
+    background-size: auto;
+  }
+}
+
+%header-background--blue,
+.header-background--blue {
+  @include background-image('bg--header-front--small.svg', 100%, auto);
+
+  @include breakpoint($large) {
+    background-image: url('../images/bg--header-front--large.svg');
+  }
+}

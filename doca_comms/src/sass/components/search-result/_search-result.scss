@@ -1,0 +1,27 @@
+// Search Result icons
+//
+// Markup: search-result.html
+//
+// Styleguide components.search-result
+
+@import 'components/document-list/document-list';
+
+%search-result,
+.search-result {
+  padding: 1rem;
+  background-image: none;
+
+  @include breakpoint($medium) {
+    padding: 2rem 1rem 2rem 2rem;
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 1rem .5rem 0;
+
+    @include breakpoint($medium) {
+      float: left;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+// Copyright
+//
+// Markup: copyright.html
+//
+// Styleguide components.copyright
+
+%copyright,
+.copyright {
+  @extend %clearfix;
+  @extend %center-left;
+
+  @include breakpoint($medium) {
+    font-size: .875rem;
+    line-height: 1.5rem;
+  }
+}
+
+%copyright__left,
+.copyright__left {
+  @include breakpoint($medium) {
+    float: left;
+    width: 60%;
+  }
+}
+
+%copyright__right,
+.copyright__right {
+  @include breakpoint($medium) {
+    float: left;
+    width: 40%;
+    text-align: right;
+  }
+}
+
+.copyright__item,
+%copyright__item {
+  margin: 0 1rem 0 0;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:last-child {
+    padding: 1rem;
+
+    @include breakpoint($medium) {
+      padding: 0;
+    }
+  }
+
+  a {
+    @extend %underline-on-hover__never;
+  }
+}

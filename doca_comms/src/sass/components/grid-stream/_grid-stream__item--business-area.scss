@@ -1,0 +1,54 @@
+// Grid Stream (business area)
+//
+// Colour branding of grid steam items
+//
+// Markup: grid-stream__item--business-area.html
+//
+// .subsite__stay-smart-online - Stay Smart Online.
+// .subsite__bureau-communications-research - Bureau Communications Research.
+// .subsite__digital-business - Digital Business.
+//
+// Styleguide components.grid-stream__item--business-area
+
+@import 'components/subsite-palette/subsite-palette';
+
+.grid-stream__item--business-area,
+%grid-stream__item--business-area {
+  overflow: hidden;
+  position: relative;
+
+  &__border {
+    content: '';
+    height: 4px;
+    width: 101%;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 210;
+  }
+  &:after {
+    @extend %grid-stream__item--business-area__border;
+  }
+
+  &--hide-stream {
+    .is-stream {
+      display: none;
+    }
+  }
+
+}
+
+
+// Paletting
+
+@each $subsite, $palette in $subsite-palette {
+  .grid-stream__item--business-area.subsite__#{$subsite} {
+    .grid-stream__icon {
+      @include subsite-link-color($subsite);
+    }
+    &:after {
+      background-color: palette($subsite-palette, $subsite border);
+    }
+  }
+}

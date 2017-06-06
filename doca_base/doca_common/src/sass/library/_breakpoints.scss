@@ -1,0 +1,25 @@
+@mixin bp-nq($breakpoint) {
+  // We are not supporting IE8 and earlier.
+  //@include breakpoint($breakpoint, $no-query: '.lt-ie9') {
+  @include breakpoint($breakpoint) {
+    @content
+  }
+}
+
+@mixin show-at($breakpoint, $display: block) {
+  display: none;
+  @include bp-nq($breakpoint) {
+    display: $display;
+    @content
+  }
+  .no-mediaqueries & {
+    display: block;
+  }
+}
+
+@mixin small-screens() {
+  // subtract 1px to max-width consistent with 1px
+  @include breakpoint(($medium - 1px) max-width) {
+    @content
+  }
+}

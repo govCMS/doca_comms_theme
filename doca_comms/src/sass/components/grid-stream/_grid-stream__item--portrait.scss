@@ -1,0 +1,46 @@
+// Grid Stream Item (Portrait)
+//
+// The Portrait variant
+//
+// Markup: grid-stream__item--portrait.html
+//
+// Styleguide components.grid-stream__item--portrait
+
+@include add-grid(12);
+@include add-gutter(0);
+
+.grid-stream__item--portrait,
+%grid-stream__item--portrait {
+  @extend %grid-stream__item;
+  @extend %layout-two-column__item;
+  &__left {
+    @extend %grid-stream__item__left;
+    @include breakpoint($medium) {
+      @include float-span(6);
+    }
+  }
+  &__right {
+    @extend %grid-stream__item__right;
+    @include breakpoint($medium) {
+      @include float-span(6, last);
+    }
+  }
+
+  &__image-overlay-after,
+  &__image-overlay-after {
+    .grid-stream__item--portrait:first-child & {
+      @include background-image('bg--cross--light.svg', 25%);
+    }
+    .grid-stream__item--portrait:last-child & {
+      @include background-image('bg--point--light.svg', 0);
+    }
+  }
+}
+
+// Fugly
+.grid-stream__item--portrait__right a {
+  @extend %grid-stream__image-overlay;
+  &:after {
+    @extend %grid-stream__item--portrait__image-overlay-after;
+  }
+}

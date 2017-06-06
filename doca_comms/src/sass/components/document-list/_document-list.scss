@@ -1,0 +1,172 @@
+// Document list
+//
+// Markup: document-list.html
+//
+// Styleguide components.document-list
+
+.document-list,
+%document-list {
+  @extend %layout-max;
+  @extend %spacer--large;
+}
+
+.document-list__item,
+%document-list__item {
+  padding: 4rem 1rem 1rem;
+  border-top:  1px solid color(grey-light);
+  background-image: url('../images/document/document--large.svg');
+  background-repeat: no-repeat;
+  background-position: 1rem 1.5rem;
+
+  @include breakpoint($medium) {
+    padding: 2rem 1rem 2rem 5rem;
+    background-position: 2.5rem 2rem;
+  }
+}
+
+.document-list__inner,
+%document-list__inner {
+  max-width: 780px;
+  overflow: hidden;
+  &--comment {
+    @extend %document-list__inner;
+    max-width: 100%;
+    .file__wrapper--slim {
+      display: table-cell;
+      vertical-align: bottom;
+      margin-left: 25px;
+    }
+    .file {
+      margin: 0 14px 0 0;
+      display: block;
+      @include breakpoint($medium) {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.document-list__title,
+%document-list__title {
+  @extend %font__medium;
+  @extend %link-arrow--after;
+  @extend %underline-on-hover__wrapper;
+
+  @include small-screens() {
+    margin-bottom: 0;
+  }
+
+  &--slim {
+    @extend %document-list__title;
+    @include breakpoint($medium) {
+      float: left;
+      width: 50%;
+      margin-bottom: 0;
+    }
+    &--comment {
+      @extend %document-list__title;
+      @include breakpoint($medium) {
+        float: left;
+        display: table;
+        width: 40%;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.document-list__author,
+%document-list__author {
+  margin: 1rem 0.5rem 0 0;
+  @include breakpoint($medium) {
+    margin-top: 0;
+    float: left;
+
+    &:after {
+      content: '|';
+      margin-left: 0.4rem;
+      color: color(grey-dark);
+    }
+  }
+}
+
+.document-list__date,
+%document-list__date {
+  margin: 0 1rem 1rem 0;
+  color: color(grey-dark);
+  @include breakpoint($medium) {
+    float: left;
+  }
+}
+
+.document-list__desc,
+%document-list__desc {
+  @extend %clearfix;
+  @extend %font__small;
+  clear: both;
+  &--comment {
+    @extend %clearfix;
+    @extend %font__small;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display:none;
+    @include breakpoint($medium) {
+      float: right;
+      width: 60%;
+    }
+  }
+}
+
+.document-list__comment,
+%document-list__comment {
+  @extend %font__small;
+  &--comment-link {
+    @extend %font__small;
+    font-weight: bold;
+    width: 120px;
+    &.link {
+      font-weight: 300;
+      cursor: pointer;
+      color: color(blue);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &.link:after {
+      content: url('../sass/components/filter/down--blue.svg');
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      vertical-align: middle;
+      margin-bottom: 8px;
+      margin-left: 3px;
+      color: currentColor;
+    }
+    &.link.link-open:after {
+      content: url('../sass/components/filter/up--blue.svg');
+    }
+    @include breakpoint($medium) {
+      display: table-cell;
+      vertical-align: bottom;
+    }
+  }
+  &--comment-docs {
+    @extend %font__small;
+    @include breakpoint($medium) {
+      // float: left;
+      display: table;
+      width: 60%;
+    }
+  }
+}
+
+.document-list__list,
+%document-list__list {
+  @extend %list-inline;
+  @include small-screens() {
+    padding: 1rem 0;
+    li {
+      margin-bottom: 0;
+    }
+  }
+}

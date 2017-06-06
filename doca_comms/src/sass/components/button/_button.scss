@@ -1,0 +1,148 @@
+// Buttons
+//
+// Styling for the buttons
+//
+// Markup: button.html
+//
+// Styleguide: components.button
+
+// Set the colours and states for buttons.
+
+@mixin button-palette($palette) {
+  &,
+  &:link {
+    border: 1px solid map-get($palette, border);
+    background-color: map-get($palette, background);
+    // Make important so it doesn't get replaced by palettes.
+    color: map-get($palette, foreground) !important;
+
+    .is-focus,
+    &:hover,
+    &:focus {
+      background-color: lighten(map-get($palette, background), 5%);
+      border-color: lighten(map-get($palette, border), 5%);
+      color: map-get($palette, foreground);
+    }
+
+    .is-active,
+    &:active {
+      @include single-box-shadow(0, 2px, 2px, 0, darken(map-get($palette, background), 10%), true);
+      background-color: darken(map-get($palette, background), 5%);
+      color: map-get($palette, foreground);
+    }
+  }
+}
+
+@mixin button__reset {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  line-height: normal;
+  padding: 0;
+  text-transform: none;
+  @include appearance(none);
+  @include user-select(none);
+  @include box-shadow(none);
+  @include border-radius(none);
+  color: color(dark) !important;
+
+  &:active,
+  &:hover,
+  &:focus {
+    @include box-shadow(none);
+    color: color(black) !important;
+    background: none;
+  }
+  &:focus {
+    outline: #999 auto;
+  }
+}
+
+
+%button,
+.button {
+  @include adjust-font-size-to(0.875rem);
+  @include single-box-shadow(0, 2px, 2px, 0, color(grey-light));
+  @include border-radius(2px);
+  line-height: 40px;
+  height: 40px;
+  padding: 0 30px;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  &:hover,
+  &:focus {
+    @include single-box-shadow(0, 2px, 10px, 0, color(grey-light));
+    cursor: pointer;
+  }
+}
+
+$button--normal__palette: (
+  background: color(blue),
+  foreground: color(white),
+  border: darken(color(blue), 5%),
+);
+
+%button--normal,
+.button--normal {
+  @extend %button;
+  @include button-palette($button--normal__palette);
+}
+
+$button--alt__palette: (
+  background: color(white),
+  foreground: color(grey-dark),
+  border: color(grey-light)
+);
+
+%button--alt,
+.button--alt {
+  @extend %button;
+  @include button-palette($button--alt__palette);
+}
+
+$button--text__palette: (
+    background: color(white),
+    foreground: color(blue),
+    border: color(grey-light)
+);
+
+%button--text,
+.button--text {
+  @extend %button;
+  @include button-palette($button--text__palette);
+  font-size: 1.125rem;
+  text-transform: none;
+  font-weight: 300;
+}
+
+$button--alert__palette: (
+    background: color(blue-alert),
+    foreground: color(white),
+    border: transparent
+);
+
+%button--alert,
+.button--alert {
+  @extend %button;
+  @include button-palette($button--alert__palette);
+}
+
+$button--clear__palette: (
+    background: color(grey-light),
+    foreground: color(black),
+    border: darken(color(grey-light), 5%),
+);
+
+%button--clear,
+.button--clear {
+  @extend %button;
+  @include button-palette($button--clear__palette);
+}
+
+// Fugly.
+.form-submit {
+  @extend %button--normal;
+}

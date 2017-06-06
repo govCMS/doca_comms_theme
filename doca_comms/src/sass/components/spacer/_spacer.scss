@@ -1,0 +1,87 @@
+// Spacer
+//
+// Markup: spacer.html
+//
+// Styleguide components.spacer
+
+%spacer,
+.spacer {
+  padding: 1rem;
+}
+
+%spacer--medium,
+.spacer--medium {
+  @extend %spacer;
+
+  @include breakpoint(960px) {
+    padding: 2rem 1rem;
+  }
+}
+
+%spacer--vertical,
+.spacer--vertical {
+  @extend %spacer;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+%spacer--vertical--medium,
+.spacer--vertical--medium {
+  padding: 2rem 0;
+}
+
+%spacer--horizontal,
+.spacer--horizontal {
+  @extend %spacer;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+%spacer--large,
+.spacer--large {
+  @extend %spacer;
+
+  @include breakpoint(960px) {
+    padding: 3rem 1rem;
+  }
+}
+
+%spacer--top,
+.spacer--top {
+  padding-top: 1rem;
+}
+
+%spacer--top-mid,
+.spacer--top-mid {
+  padding-top: 2rem;
+}
+
+%spacer--top-large,
+.spacer--top-large {
+  @extend %spacer--top;
+
+  @include breakpoint(960px) {
+    padding-top: 3rem;
+  }
+}
+
+%spacer--bottom,
+.spacer--bottom {
+  padding-bottom: 1rem;
+}
+
+%spacer--bottom-mid,
+.spacer--bottom-mid {
+  padding-bottom: 2rem;
+}
+
+%spacer--bottom-large,
+.spacer--bottom-large {
+  @extend %spacer--bottom;
+
+  @include breakpoint(960px) {
+    padding-bottom: 3rem;
+  }
+}
+
+

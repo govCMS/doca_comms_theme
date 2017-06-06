@@ -1,0 +1,93 @@
+// Share Row
+//
+// Markup: share-row.html
+//
+// Styleguide components.share-row
+
+@import 'components/heading/heading';
+@import 'components/bordered/bordered';
+
+.share-row,
+%share-row {
+  color: color(grey-dark);
+  @include breakpoint($medium) {
+    text-align: right;
+  }
+
+  &__bordered {
+    @extend %bordered--top;
+    line-height: 0;
+    padding: 1rem .5rem;
+    margin-bottom: 1rem;
+    @include breakpoint($medium) {
+      display: inline-block;
+    }
+  }
+
+  &__left,
+  &__right {
+    @include breakpoint($x-large) {
+      width: 50%;
+      float: left;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    line-height: 1.5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    @extend %heading--3;
+    font-weight: normal;
+    font-size: 1rem;
+    margin-bottom: .25rem;
+    @include breakpoint($medium) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__svg {
+    fill: currentColor;
+    width: 20px;
+    height: 20px;
+  }
+
+  a {
+    border-bottom: 0;
+    color: color(blue);
+    &:focus,
+    &:hover {
+      color: color(blue-light);
+    }
+    &:active {
+      color: color(dark);
+    }
+  }
+
+}
+
+// fugly
+.share-row {
+  li {
+    @extend %share-row__item;
+    &:first-child {
+      @extend %share-row__label;
+    }
+  }
+  // h3 needed for consultation config.
+  h3 {
+    @extend %share-row__item;
+    @extend %share-row__label;
+  }
+}
+

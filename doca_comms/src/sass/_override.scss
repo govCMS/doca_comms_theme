@@ -1,0 +1,10 @@
+body {
+  &.section-have-your-say {
+    %filter,
+    .filter {
+      &__button {
+        clear: inherit;
+      }
+    }
+  }
+}

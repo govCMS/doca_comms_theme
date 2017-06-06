@@ -1,0 +1,32 @@
+// Link Arrow
+//
+// Markup: link-arrow.html
+//
+// Styleguide components.link-arrow
+
+.link-arrow,
+%link-arrow {
+  content: url('../images/arrow.svg');
+  vertical-align: baseline;
+  display: inline-block;
+  padding: 0 .25rem;
+  height: 10px;
+  width: 10px;
+  line-height: 10px;
+}
+
+.link-arrow--after,
+%link-arrow--after {
+  &:after {
+    @extend %link-arrow;
+    padding-right: 0;
+  }
+}
+
+.link-arrow--before,
+%link-arrow--before {
+  &:before {
+    @extend %link-arrow;
+    padding-left: 0;
+  }
+}

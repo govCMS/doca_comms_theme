@@ -1,0 +1,38 @@
+// Grid Stream Item (Landscape)
+//
+// The Landscape variant
+//
+// Markup: grid-stream__item--landscape.html
+//
+// Styleguide components.grid-stream__item--landscape
+
+.grid-stream__item--landscape,
+%grid-stream__item--landscape {
+  @extend %grid-stream__item;
+  &__left {
+    @extend %grid-stream__item__left;
+    @include breakpoint($medium) {
+      width: 32.75%;
+    }
+  }
+  &__right {
+    @extend %grid-stream__item__right;
+    @include breakpoint($medium) {
+      width: 67.25%;
+    }
+  }
+
+  &__image-overlay-after,
+  &__image-overlay-after {
+    @include background-image('bg--big--light.svg', 100%);
+  }
+}
+
+// Fugly
+.grid-stream__item--landscape__right a {
+  @extend %grid-stream__image-overlay;
+  &:after {
+    @extend %grid-stream__item--landscape__image-overlay-after;
+  }
+}
+

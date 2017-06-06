@@ -1,0 +1,81 @@
+// Header menu
+//
+// An inline list of links on large screens which collapses down into an
+// vertical list of links
+//
+// Markup: header-menu.html
+//
+// Styleguide components.header-menu
+
+@import 'components/list-unstyled/list-unstyled';
+
+%header-menu__menu,
+.header-menu__menu {
+  @extend %list-unstyled;
+  padding: 0 1rem;
+
+  @include breakpoint($large) {
+    border: none;
+    float: right;
+  }
+}
+
+%header-menu__item,
+.header-menu__item {
+  @extend %header-menu__border;
+
+  @include breakpoint($large) {
+    display: inline-block;
+    margin-right: 1.5rem;
+  }
+
+  .no-mediaqueries & {
+    display: inline-block;
+    margin-right: 1.5rem;
+  }
+}
+
+%header-menu__link,
+.header-menu__link {
+  @extend %header-menu__border;
+  @extend %header-menu__arrow;
+  border-color: transparent;
+  display: block;
+  padding: 1.25rem 0;
+  color: color(dark);
+  text-decoration: none;
+
+  @include breakpoint($large) {
+    padding: 1rem 0 0;
+  }
+}
+
+.header-menu__border,
+%header-menu__border {
+  border-bottom: 1px solid color(grey-extra-light);
+
+  @include breakpoint($large) {
+    border-color: transparent;
+  }
+
+  &:focus,
+  &:hover,
+  &.is-active,
+  .is-active & {
+    border-color: color(yellow) !important;
+  }
+}
+
+.header-menu__arrow,
+%header-menu__arrow {
+  &:after {
+    content: url('../images/arrow--blue.svg');
+    padding-left: .25rem;
+    float: right;
+
+    @include breakpoint($large) {
+      content: '';
+      padding-left: 0;
+    }
+  }
+}

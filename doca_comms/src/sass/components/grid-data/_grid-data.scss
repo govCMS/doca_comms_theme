@@ -1,0 +1,53 @@
+// Grid Data
+//
+// Markup: grid-data.html
+//
+// Styleguide components.grid-data
+
+@import 'library/font-size-line-height';
+@import 'layouts/layout-three-column/layout-three-column';
+@import 'components/read-more/read-more';
+@import 'components/spacer/spacer';
+@import 'components/flex-box/flex-box';
+
+.grid-data,
+%grid-data {
+  @extend %layout-three-column;
+  @extend %spacer--large;
+  @extend %flex-box;
+  flex-wrap: wrap;
+  margin: auto;
+  &:before,
+  &:after {
+    display: none;
+  }
+}
+
+.grid-data__item,
+%grid-data__item {
+  @extend %read-more;
+  @include layout-three-column__item($medium, $large, 1/20);
+  display: block;
+  background: color(white);
+  margin-bottom: .5rem;
+  padding: 0;
+  border-bottom: solid 4px color(grey-light) !important;
+  &:hover {
+    border-color: palette($subsite-palette, bureau-communications-research border) !important;
+  }
+  svg {
+    fill: color(red);
+    width: 22px;
+    height: 20px;
+  }
+}
+
+.grid-data__link-text,
+%grid-data__link-text {
+  @include font-size-line-height(1.75rem);
+  display: inline-block;
+  padding: .5rem 1rem 1rem;
+  font-weight: lighter;
+  color: color(dark);
+  border: 0;
+}

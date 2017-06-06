@@ -1,0 +1,20 @@
+.element-invisible,
+%element-invisible {
+  @include element-invisible;
+}
+
+.element-invisible--focusable,
+%element-invisible--focusable {
+
+  @include element-invisible;
+  &:active,
+  &:focus {
+    @include element-invisible-off;
+  }
+}
+
+// Fugly
+
+.element-focusable {
+  @extend %element-invisible--focusable;
+}

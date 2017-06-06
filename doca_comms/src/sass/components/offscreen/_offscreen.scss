@@ -1,0 +1,100 @@
+// Off screen column
+//
+// A column off the page, that moves onto the page by a
+// javascript toggle, used on smaller screens only.
+//
+// Markup: offscreen.html
+//
+// .is-moved - On-screen version
+//
+// Styleguide components.offscreen
+
+
+// scss-lint:disable VendorPrefixes
+
+@mixin transform3d-left($left) {
+  @include transform(translate3d($left, 0, 0));
+  -ms-transform: translate($left, 0); // needed for ie9 support
+}
+
+%offscreen,
+.offscreen {
+  @include backface-visibility(hidden);
+  position: relative;
+  width: 100%;
+
+  @include breakpoint($not-large) {
+    // class added by js.
+    &.is-moved {
+      min-height: 100%;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+%offscreen__inner,
+.offscreen__inner {
+  @include transition(transform, 500ms, ease);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  @include breakpoint($not-large) {
+    // class added by js.
+    .is-moved & {
+      @include transform3d-left(-80%);
+      overflow: visible;
+    }
+  }
+}
+
+%offscreen__item,
+.offscreen__item {
+  @include breakpoint($not-large) {
+    background-color: color(grey-off-white);
+
+    .js & {
+      @include backface-visibility(hidden);
+      @include transform3d-left(100%);
+      top: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      width: 80%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      z-index: 1001;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .is-moved & {
+      @include single-box-shadow(-5px, 0, 10px, 0, #999);
+    }
+  }
+
+  .no-mediaqueries & {
+    clear: both;
+    width: 100%;
+  }
+}
+
+%offscreen__toggle,
+.offscreen__toggle {
+  @extend %hide-text;
+  float: right;
+  cursor: pointer;
+  text-decoration: none;
+  width: 45px;
+  line-height: 45px;
+  background-image: url('../images/bars.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+
+  @include breakpoint($not-large) {
+    .js & {
+      display: block;
+    }
+  }
+}

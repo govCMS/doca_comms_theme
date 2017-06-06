@@ -1,0 +1,20 @@
+// Responsive tables
+//
+// The <b>.tablesaw</b> class, and <b>data-tablesaw-mode</b> attribute are required
+// to make the table responsive. A &lt;thead&gt; is also required around the &lt;th&gt; cells. <br />
+// Links: https://github.com/filamentgroup/tablesaw#tablesaw-
+//
+// Markup: tablesaw.html
+//
+// Styleguide components.tablesaw
+
+.tablesaw {
+  border: 1px solid #dfdfdf;
+  
+  tbody tr {
+    border-top: 1px solid #dfdfdf;
+  }
+  &.tablesaw-stack tbody tr {
+    border-bottom: none;
+  }
+}

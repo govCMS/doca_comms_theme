@@ -1,0 +1,26 @@
+// Layout Four Columns
+//
+// A four column grid on large screens, that collapses into one column on small screens.
+//
+// Markup: layout-four-column.html
+//
+// Styleguide layouts.four-column
+
+@import 'layouts/layout-max/layout-max';
+
+%layout-four-column,
+.layout-four-column {
+  @extend %layout-max--sm-med-lrg;
+  padding: 1rem;
+}
+
+%layout-four-column__item,
+.layout-four-column__item {
+  padding: 1rem;
+  float: left;
+
+  @include breakpoint($medium) {
+    width: 25%;
+  }
+
+}

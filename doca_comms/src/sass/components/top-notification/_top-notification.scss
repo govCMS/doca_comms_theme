@@ -1,0 +1,94 @@
+// Top notification
+//
+// Markup: top-notification.html
+//
+// Styleguide components.top-notification
+
+@import 'components/button/button';
+@import 'components/underline-on-hover/underline-on-hover';
+
+
+.top-notification#cookie-alert {
+  background: #0d293b;
+}
+
+.top-notification#top-announcements {
+  background: #fee73d;
+  color: #0d293b;
+  a {
+    color: #0d293b;
+  }
+}
+
+.top-notification,
+%top-notification {
+  display: none;
+  &,
+  a {
+    @include font-size-line-height(.8rem);
+    color: white;
+    @include breakpoint($medium) {
+      @include font-size-line-height(1rem);
+    }
+  }
+
+  a {
+    @extend %underline-on-hover;
+    font-weight: bold;
+  }
+
+  &__inner {
+    @extend %layout-max;
+    @include display-flex;
+    align-items: center;
+    padding: 1rem;
+    > * {
+      // Invalidated by flexbox parent on newer browsers
+      float: left;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    @include breakpoint($medium) {
+      width: 80%;
+      flex: 0 1 auto;
+      .flexbox & {
+        width: auto;
+      }
+    }
+  }
+
+  &__icon {
+    @extend %show-at__medium;
+    margin-right: 2rem;
+    width: 40px;
+    height: 40px;
+    @include breakpoint($medium) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &__close-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  &--alert {
+    background-color: color(red);
+  }
+}
+
+.top-notification__close,
+%top-notification__close {
+  @include button__reset;
+  margin-left: 2rem;
+  flex: 0 auto;
+
+  .no-svg & {
+    .element-invisible {
+      @include element-invisible-off;
+    }
+  }
+}

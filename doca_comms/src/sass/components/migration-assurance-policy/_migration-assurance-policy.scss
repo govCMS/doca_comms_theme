@@ -1,0 +1,242 @@
+// Tim Hurely
+
+div.migration-assurance-menu {
+
+  // SVG images in corner of blue cards
+  .featured__grid-container .featured-palette {
+    .featured__grid-item {
+      .file {
+        margin: 0;
+      }
+      img {
+        height: 132px;
+      }
+    }
+  }
+
+  .field-name-field-migration-assurance-menu {
+    background-color: #D7D7D7;
+    .steps-section-wrapper {
+      margin-bottom: 5em;
+      float: left;
+      width: 100%;
+    }
+    .steps-section { // 1,2,3,4 Section
+      text-align: center;
+      width: 75%;
+      float: left;
+      @include background-image('bg--online-publication.svg');
+      .steps_item_list { // <ul>
+        li {
+          width: 24%;
+          margin: 0;
+          display: inline-table;
+         
+          a,
+          .step_item_count,
+          .step_item_title {
+            //width: 100%;
+            text-decoration: none;
+            display: block;
+          }
+          .step_item_count {
+            font-size: 260%;
+            font-weight: 600;
+            color: #D1D3D5;
+            text-shadow: 2px 2px #ABB1B5;
+            margin: 1.4em 0 0.8em 0;
+          }
+          .step_item_title {
+            font-size: 110%;
+            text-transform: uppercase;
+            min-height: 3em;
+            //color: #12293a;
+            // make 'bold' (400), revert to above colour if changing back to slimmer font weight
+            color: #3D4F5D;
+            font-weight: 400;
+          }
+          a {
+            border: none;
+            &:after {
+              content: "";
+              border-bottom: 1px solid #DBDBDB;
+              width: 20px;
+              display: inline-block;
+            }
+            &:hover,
+            &:active,
+            &:focus {
+              text-decoration: none;
+              &:after {
+                border-bottom: 1px solid #007ABB;
+              }
+            }
+          }
+        }
+      }
+      .step_footer {
+        display: block;
+        //margin-top: 1em;
+        //padding: 3em 0 1.4em 0;
+        border: none;
+        color: #12293a;
+        border-bottom: 1px solid transparent;
+        &:hover,
+        &:active,
+        &:focus {
+          border-bottom: 1px solid currentColor;
+          border-bottom-width: 70%;
+        }
+      }
+    }
+    .circle-section {
+      margin-top: 1.4em;
+      float: left;
+      border: 9px solid #DFDFDF;
+      border-top-color: #D1D3D5;
+      border-left-color: #D1D3D5;
+      transform: rotate(80deg);
+      border-radius: 100%;
+      width: 150px;
+      height: 150px;
+      margin-left: 6%;
+      transition: all 0.7s;
+      span {
+        transform: rotate(-80deg);
+        color: #12293a;
+        top: 55px;
+        text-align: center;
+        display: block;
+        position: relative;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: underline;
+        border-top-color: #ABB1B5;
+        border-left-color: #ABB1B5;
+        border-bottom-color: #efefef;
+        border-right-color: #efefef;
+      }
+    }
+    // greyscale logos ...unless you're IE11 :/
+    .inline-logo-list {
+      clear: both;
+      h3 {
+        float: left;
+        margin-top: 1.9em;
+        font-size: 110%;
+      }
+      ul {
+        margin-top: 0;
+      }
+      a {
+        border-bottom: 1px solid transparent;
+        img {
+          -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+          width: 100px;
+        }
+        &:hover,
+        &:active,
+        &:focus {
+          img {
+            -webkit-filter: grayscale(0);
+            filter: grayscale(0);
+          }
+        }
+      }
+    }
+    hr {
+      border-color: #99999B;
+      margin: 3em 0;
+    }
+    ul.more-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        margin-bottom: 0.8em;
+        a {
+          border: none;
+          display: inline-block;
+          border-bottom: 1px solid transparent;
+          &:hover,
+          &:active,
+          &:focus {
+            border-bottom: 1px solid currentColor;
+          }
+          svg {
+            position: relative;
+            top: -2px;
+            width: 10px;
+            height: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  #site-feedback-block {
+    margin-top: 0;
+  }
+
+}
+
+@media (max-width: 1100px) {
+.step_footer {
+background-color: none;
+}
+@media (max-width: 1050px) {
+.step_footer {
+background-color:#f0f0f0;
+}
+}
+
+}
+// Responsive styles
+@media (max-width: 850px) {
+  div.migration-assurance-menu .field-name-field-migration-assurance-menu {
+    background-color: #D7D7D7;
+    .inline-logo-list {
+      h3 {
+        float: none;
+      }
+    }
+    .steps-section-wrapper {
+      margin-bottom: 3em;
+      float: left;
+      width: 100%;
+    }
+    .steps-section { // 1,2,3,4 Section
+      background: #EAEAEA;
+      width: 100%;
+      margin-bottom: 2.5em;
+      .steps_item_list { // <ul>
+        width: 100%;
+        li {
+          width: 50%;
+          display:inline-block;
+          a {
+            margin-bottom: 1em;
+            .step_item_title {
+              min-height: 5em;
+            }
+          }
+        }
+      }
+      .step_footer {
+        border-top: 0px solid #D7D7D7;
+        padding-top: 0em;
+        margin-top: 0em;
+        background: rgba(#eee, 0.6);
+      }
+    }
+    .circle-section {
+      margin: 0 auto;
+      float: none;
+      clear: both;
+      display:block;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+// Font
+//
+// Variations on size and line height for any text.
+//
+// Markup: font.html
+//
+// .font__large   - Larger than medium but not as big as a heading.
+// .font__medium  - Larger than base font size.
+// .font__small   - Smaller thank base font size.
+//
+// Styleguide: components.font
+
+// The font sizes for small-large.
+$large-font-size: 1.5rem;
+$medium-font-size: 1.125rem;
+$small-font-size: 0.875rem;
+
+
+%font__large,
+.font__large {
+  @include font-size-line-height(1.25rem);
+  font-weight: 300;
+
+  @include breakpoint($large) {
+    @include font-size-line-height(1.5rem);
+  }
+}
+
+%font__medium-large,
+.font__medium-large {
+  font-weight: 500;
+  color: color(dark);
+
+  @include breakpoint($medium) {
+    @include font-size-line-height(1.375rem);
+  }
+}
+
+%font__medium,
+.font__medium {
+  @include font-size-line-height($medium-font-size);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+%font__small,
+.font__small {
+  @include font-size-line-height($small-font-size);
+}
+

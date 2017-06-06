@@ -1,0 +1,215 @@
+// Form elements
+//
+// Styling for the specific form elements
+//
+// Markup: form.html
+//
+// Styleguide: components.form
+
+%form,
+.form {
+  @extend %layout-max;
+  @extend %spacer--large;
+}
+
+%form__title,
+.form__title {
+  @extend %heading--3;
+  display: block;
+  color: color(dark);
+  padding-bottom: 1rem;
+}
+
+%form__label,
+.form__label {
+  font-weight: 500;
+  color: color(black);
+}
+
+.form__label--inline,
+%form__label--inline {
+  font-weight: 300;
+  display: inline;
+}
+
+.form__label__required,
+%form__label__required {
+  color: color(red);
+}
+
+%form__description,
+.form__description {
+  @extend %font__small;
+  padding-top: .5rem;
+  font-style: italic;
+}
+
+%form__input,
+.form__input {
+  border: 1px solid color(grey-light);
+  background-color: color(grey-off-white);
+
+  @include input-placeholder {
+    color: color(grey-light);
+  }
+
+  &:focus {
+    border-color: color(blue-light);
+    @include input-placeholder {
+      color: color(grey-extra-light);
+    }
+  }
+
+  &:active {
+    border-color: color(dark);
+  }
+
+  &.has-error {
+    border-color: color(red);
+  }
+}
+
+%form__input--textarea,
+.form__input--textarea {
+  @extend %form__input;
+  @include single-box-shadow(0, 2px, 2px, 0, darken(color(grey-off-white), 5%), true);
+}
+
+%form__input--file,
+.form__input--file {
+  @extend %form__input;
+  @include single-box-shadow(0, 2px, 2px, 0, darken(color(grey-off-white), 5%), true);
+  margin-right: 10px !important;
+  vertical-align: top;
+  line-height: 1rem;
+  padding: 0.5rem;
+}
+
+%form__input--select {
+  @extend %form__input;
+}
+
+%form__item,
+.form__item {
+  @extend %spacer--bottom;
+  @extend %max-width__medium;
+}
+
+%form__action,
+.form__action {
+  @extend %spacer--vertical;
+  @extend %max-width__medium;
+}
+
+%form__item--inline,
+.form__item--inline {
+  display: inline-block;
+  margin: 0 2rem 0 0;
+}
+
+%form__group,
+.form__group {
+  @extend %spacer;
+  @extend %max-width__medium;
+  margin-bottom: 1rem;
+  background-color: color(grey-off-white);
+}
+
+%form__group--top-arrow,
+.form__group--top-arrow {
+  @extend %form__group;
+  position: relative;
+
+  &:before {
+    content: '';
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-bottom-color: color(grey-off-white);
+    border-width: 15px;
+    margin-left: -15px;
+  }
+}
+
+// Fugly.
+.webform-client-form,
+.contact-form {
+  @extend %form;
+
+  .field & {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+fieldset.separate {
+  @extend %max-width__medium;
+  border: 1px solid color(grey-light);
+  padding: 0.75rem 3.5rem 0.75rem 2rem;
+  .fieldset-legend {
+    padding-bottom: 0;
+  }
+}
+
+.fieldset-legend {
+  @extend %form__title;
+}
+
+.form-item {
+  @extend %form__item;
+
+  label {
+    @extend %form__label;
+    .form-required {
+      @extend %form__label__required;
+    }
+  }
+}
+
+.form-text {
+  @extend %form__input;
+}
+
+.form-textarea {
+  @extend %form__input--textarea;
+}
+
+.form-file {
+  @extend %form__input--file;
+}
+
+.form-select {
+  @extend %form__input--select;
+}
+
+.form-type-checkbox,
+.form-type-radio {
+  padding-bottom: 0 !important;
+  label {
+    @extend %form__label--inline;
+  }
+}
+
+.form-type-radio {
+  @extend %form__item--inline;
+}
+
+.form-actions {
+  @extend %spacer--top;
+}
+
+.hide_short_comments {
+  .webform-component--step-1-your-submission--short-comments {
+    display: none;
+  }
+}
+
+.hide_files {
+  .webform-component--step-1-your-submission--hys-formal-uploads {
+    display: none;
+  }
+}

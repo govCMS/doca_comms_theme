@@ -1,0 +1,31 @@
+// Layout Max
+//
+// Markup: layout-max.html
+//
+// Styleguide layouts.layout-max
+
+@import 'components/clearfix/clearfix';
+
+%layout-max,
+.layout-max {
+  @extend %clearfix;
+  clear: both;
+  max-width: $x-large;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+%layout-max--sm-med-lrg,
+.layout-max--sm-med-lrg {
+  @extend %layout-max;
+  max-width: $medium/2;
+
+  @include breakpoint($medium) {
+    max-width: $medium;
+  }
+
+  @include breakpoint($large) {
+    max-width: $x-large;
+  }
+}

@@ -1,0 +1,101 @@
+// Page 404
+//
+// Markup: page-404.html
+//
+// Styleguide components.page-404
+
+@import 'layouts/layout-flex-grid/layout-flex-grid';
+@import 'layouts/layout-two-column/layout-two-column';
+@import 'components/spacer/spacer';
+
+.page-404__page-wrapper,
+%page-404__page-wrapper {
+  @include background-image('bg--cross.svg', 0);
+  background-color: color(grey-off-white);
+  min-height: 100%;
+
+  .multiplebgs & {
+    background-image: url('../images/bg--cross.svg'), url('../images/bg--small.svg');
+    background-position: 0 100%, 100% 0;
+    background-size: cover, auto;
+  }
+}
+
+.page-404__wrapper,
+%page-404__wrapper {
+  @extend %layout-flex-grid--reverse;
+  @extend %layout-two-column;
+  @extend %spacer--large;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-404__two-column,
+%page-404__two-column {
+  margin-bottom: 2rem;
+
+  @include breakpoint($medium) {
+
+    width: 50%;
+    float: right;
+    padding: 5%;
+
+    // For some reason flexboxed items need this
+    .flexbox & {
+      &:first-child {
+        margin-left: -1px;
+      }
+    }
+
+    &:last-child {
+      padding-left: 0;
+    }
+
+  }
+}
+
+.page-404__message,
+%page-404__message {
+  background: color(white);
+  padding: 5%;
+  color: color(grey-dark);
+}
+
+.page-404__title-wrapper,
+%page-404__title-wrapper {
+  width: 50%;
+  float: left;
+}
+
+.page-404__column-title,
+%page-404__column-title {
+  text-align: center;
+  @include breakpoint($medium) {
+    border-left: solid 1px #999;
+    padding-left: 2rem;
+  }
+}
+
+.page-404__title,
+%page-404__title {
+  font-family: Gafata, serif, monospace;
+  font-size: 8rem;
+  line-height: 8rem;
+  @include breakpoint($medium) {
+    font-size: 12rem;
+    line-height: 10rem;
+  }
+}
+
+.page-404__sub-title,
+%page-404__sub-title {
+  font-family: Gafata, serif, monospace;
+
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  @include breakpoint($medium) {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+
+}

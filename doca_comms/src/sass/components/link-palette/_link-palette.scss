@@ -1,0 +1,15 @@
+// Link Palette
+//
+// Markup: link-palette.html
+//
+// Styleguide components.link-palette
+
+.link-palette__normal,
+%link-palette__normal {
+  @include link-palette();
+}
+
+.link-palette__grey,
+%link-palette__grey {
+  @include link-palette(color(grey-dark));
+}

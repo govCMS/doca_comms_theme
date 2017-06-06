@@ -1,0 +1,84 @@
+// Update -- Extra
+//
+// Markup: update--extra.html
+//
+// Styleguide components.update--extra
+
+@import 'components/update/update';
+@import 'layouts/layout-two-column/layout-two-column';
+@import 'components/heading/heading';
+@import 'components/palette/palette';
+@import 'components/clearfix/clearfix';
+@import 'components/spacer/spacer';
+
+
+.update--extra__wrapper,
+%update--extra__wrapper {
+  @extend %palette__white-on-grey;
+  @extend %clearfix__overflow;
+  @extend %spacer--medium;
+}
+
+.update--extra,
+%update--extra {
+  @extend %update;
+  @extend %layout-two-column__item;
+  @extend %spacer;
+  border: 0;
+  margin-bottom: 0;
+  @include breakpoint($medium) {
+    margin-bottom: 0;
+    clear: both;
+  }
+  @include breakpoint($large) {
+    padding: 0 1rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.update--extra__icon,
+%update--extra__icon {
+  @extend %update__icon;
+  @include border-radius(5rem);
+  position: relative;
+  background: white;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+  padding-bottom: 1rem;
+  @include breakpoint($medium) {
+    padding: 0;
+  }
+
+  img {
+    width: 65%;
+    height: 65%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+  }
+}
+
+.update--extra__title,
+%update--extra__title {
+  @extend %heading--4;
+  padding-top: 1rem;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.update--extra__date,
+%update--extra__date {
+  @extend %font__small;
+  color: color(white);
+}
+
+.update--extra__description,
+%update--extra__description {
+  @extend %font__small;
+  font-weight: bold;
+}

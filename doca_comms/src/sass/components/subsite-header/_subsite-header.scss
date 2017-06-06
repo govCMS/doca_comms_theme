@@ -1,0 +1,279 @@
+
+
+
+// Subsite Header
+//
+// Accessibility: http://heydonworks.com/practical_aria_examples/#hamburger
+//
+// Markup: subsite-header.html
+//
+// Styleguide: components.subsite-header
+
+// Subsite Header -- Variations
+//
+// Markup: subsite-header--variations.html
+//
+// Styleguide: components.subsite-header--variations
+
+@import 'components/palette-extend/palette-extend';
+@import 'components/button/button';
+@import 'components/subsite-palette/subsite-palette';
+
+
+$height: 3.5rem;
+
+.subsite-header__layout,
+%subsite-header__layout {
+  @extend %clearfix;
+  > :last-child {
+    float: right;
+  }
+  > :first-child {
+    float: left;
+  }
+}
+
+.subsite-header__layout--small,
+%subsite-header__layout--small {
+  @extend %subsite-header__layout;
+  > :first-child,
+  > :last-child {
+    @include breakpoint($large) {
+      float: none;
+    }
+  }
+  > :last-child {
+    width: 50%;
+  }
+}
+
+.subsite-header__branding,
+%subsite-header__branding {
+  @extend %layout-max;
+  padding: 1rem;
+  @include breakpoint($large) {
+    padding: 0;
+  }
+}
+
+.subsite-header__nav,
+%subsite-header__nav {
+  position: relative;
+  @include breakpoint($large) {
+    @include palette-extend--both;
+    background: rgba(#000, .2);
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
+.subsite-header__list,
+%subsite-header__list {
+  @extend %layout-max;
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+  margin: 0;
+  background: rgba(#000, .8);
+  .mediaqueries & {
+    @extend %show-at__large;
+    position: absolute;
+    z-index: 100;
+    @include breakpoint($large) {
+      padding: 0;
+      position: static;
+      text-align: left !important;
+      background: none;
+    }
+    &.subsite-header__expanded {
+      display: block;
+    }
+  }
+}
+
+.subsite-header__item,
+%subsite-header__item {
+  list-style: none;
+  padding: .25rem .25rem .5rem;
+  @include breakpoint($large) {
+    padding: 1rem;
+  }
+  @include breakpoint($large) {
+    display: inline-block;
+  }
+  &.is-active {
+    @include breakpoint($large) {
+      background: white;
+    }
+  }
+}
+
+.subsite-header__link,
+%subsite-header__link {
+  @include underline-on-hover__never;
+  padding: .4rem;
+
+  // Font Color
+  color: rgba(white, .7);
+  font-weight: 400;
+  @include breakpoint($large) {
+    color: white;
+  }
+
+
+  // Hover styles
+  &:hover {
+    color: white;
+    @include breakpoint($large) {
+      // Border styles
+      border-bottom: solid 3px white;
+    }
+  }
+
+  // Hover styles
+  &:active {
+    @include breakpoint($large) {
+      // Border styles
+      color: #000;
+      border-bottom: solid 3px #000;
+    }
+  }
+
+  // Active styles
+  .is-active & {
+    // Add active border only on smaller screens, remove border on larger screens
+    border-bottom: solid 3px;
+    @include breakpoint($large) {
+      border-bottom: 0;
+    }
+    @include breakpoint($large) {
+      background: white;
+    }
+  }
+}
+
+.subsite-header__button,
+%subsite-header__button {
+  @include button__reset;
+  text-align: center;
+  width: 100%;
+  height: $height;
+  @include breakpoint($large) {
+    display: none;
+  }
+  &--expanded {
+    background: rgba(#000, .8);
+  }
+}
+
+.subsite-header__button-link,
+%subsite-header__button-link {
+  padding-bottom: 3px;
+  color: #fff;
+  border-bottom: solid 3px rgba(#000, .4);
+  font-weight: 400;
+  &.is-active {
+    border-color: transparent;
+  }
+}
+
+.subsite-header__arrow,
+%subsite-header__arrow {
+  width: 17px;
+  height: 17px;
+  margin-left: 1rem;
+  .subsite-header__button--expanded & {
+    @include transform(rotate(-180deg));
+  }
+}
+
+.subsite-header__logo-large,
+%subsite-header__logo-large {
+  @extend %spacer--medium;
+  @extend %show-at__large;
+  @extend %underline-on-hover__never;
+  width: 100%;
+}
+
+.subsite-header__logo-small,
+%subsite-header__logo-small {
+  @extend %underline-on-hover__never;
+  display: block;
+
+  @include breakpoint($large) {
+    display: none;
+  }
+
+  img {
+    height: $height;
+  }
+}
+
+.subsite-header__emblem,
+%subsite-header__emblem {
+  @extend %spacer--medium;
+  @extend %show-at__large;
+  float: right;
+  width: 200px;
+}
+
+
+// Paletting
+
+@mixin subsite-header__paletting($subsite, $palette) {
+  .subsite-header {
+    @include background-image('bg--subsite-header.svg', 50%);
+    background-color: palette($palette, $subsite background);
+  }
+  .is-active .subsite-header__link {
+    border-bottom-color: palette($palette, $subsite background);
+    color: white;
+    @include breakpoint($large) {
+      color: palette($palette, $subsite foreground);
+    }
+  }
+  .subsite-header__arrow {
+    fill: palette($subsite-palette, $subsite header-arrow);
+  }
+  .subsite-header__button-link {
+    border-bottom-color: palette($palette, $subsite foreground);
+  }
+}
+
+@each $subsite, $palette in $subsite-palette {
+  .subsite__#{$subsite} {
+    @include subsite-header__paletting($subsite, $subsite-palette);
+  }
+}
+
+
+// Paletting forks
+
+.subsite__stay-smart-online {
+  .subsite-header__logo-large {
+    max-width: 384px;
+  }
+}
+
+.subsite__bureau-communications-research {
+  .subsite-header__button-link {
+    color: rgba(#000, .8);
+  }
+  .subsite-header__button--expanded .subsite-header__button-link {
+    color: color(white);
+  }
+  .subsite-header__logo-large {
+    max-width: 600px;
+  }
+  .subsite-header__logo-small img {
+    height: 4.5rem;
+    margin: -.5rem 0 0 -1rem;
+    position: absolute;
+  }
+}
+
+.subsite__digital-business {
+  .subsite-header__logo-large {
+    max-width: 384px;
+  }
+}

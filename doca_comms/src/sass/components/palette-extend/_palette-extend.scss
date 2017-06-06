@@ -1,0 +1,82 @@
+// Palette extension
+//
+// Extend a coloured block out full width either left or right
+//
+// Markup: palette-extend.html
+//
+// Styleguide components.palette-extend
+
+
+@mixin palette-extend {
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 100%;
+  display: block;
+}
+.palette-extend,
+%palette-extend {
+  @include palette-extend;
+}
+
+.palette-extend--left,
+%palette-extend--left {
+  position: relative;
+
+  &:before {
+    @extend %palette-extend;
+    left: -100%;
+  }
+
+  &:after {
+    @extend %palette-extend;
+    left: 100%;
+
+    @include breakpoint($medium) {
+      display: none;
+    }
+  }
+}
+
+.palette-extend--right,
+%palette-extend--right {
+  position: relative;
+
+  &:before {
+    @extend %palette-extend;
+    left: 100%;
+  }
+
+  &:after {
+    @extend %palette-extend;
+    left: -100%;
+
+    @include breakpoint($medium) {
+      display: none;
+    }
+  }
+}
+
+
+
+@mixin palette-extend--both {
+  position: relative;
+  overflow: visible;
+  &:before,
+  &:after {
+    @include palette-extend;
+  }
+  &:before {
+    left: 100%;
+  }
+  &:after {
+    left: -100%;
+  }
+}
+.palette-extend--both,
+%palette-extend--both {
+  @include palette-extend--both;
+}

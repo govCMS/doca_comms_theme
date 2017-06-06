@@ -1,0 +1,177 @@
+// Tabbed content
+//
+// Presentation of tabbed content on site (no javascript)
+//
+// Markup: tabber.html
+//
+// Styleguide components.tabber
+
+@import 'components/list-inline/list-inline';
+@import 'components/flex-box/flex-box';
+
+%tabber,
+.tabber {
+  border: 1px solid color(grey-light);
+  @include small-screens() {
+    border-bottom: none;
+  }
+
+  &__nav-item {
+    @include font-size-line-height(1.375rem);
+    display: block;
+    background: color(white);
+    color: color(blue);
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 1rem;
+    @include breakpoint($medium) {
+      padding: 1rem 0;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    &.is-active {
+      @extend %tabber__nav-item--active;
+    }
+    &:focus,
+    &:hover {
+      @extend %tabber__nav-item--focus;
+    }
+  }
+
+  &__nav-item--active {
+    background-color: color(white);
+    border-color: color(yellow);
+    color: color(grey-dark);
+  }
+
+  &__nav-item--focus {
+    background-color: color(white);
+    border-color: color(blue);
+    color: color(blue);
+  }
+
+  &__mobile-item {
+    @extend %tabber__nav-item;
+    border-color: color(grey-light);
+    @include breakpoint($medium) {
+      @include element-invisible();
+    }
+
+    &.is-active {
+      @extend %tabber__nav-item--active;
+    }
+    &:focus,
+    &:hover {
+      @extend %tabber__nav-item--focus;
+    }
+  }
+
+  &__pane {
+    padding: 1rem 2rem;
+    margin: 0;
+    overflow: hidden;
+
+    @include small-screens() {
+      border-bottom: 1px solid color(grey-light);
+    }
+    @include breakpoint($medium) {
+      padding: 1rem 7rem 1rem 4rem;
+    }
+
+    &.is-hidden {
+      @extend %element-invisible;
+    }
+  }
+}
+
+%tabber__pane--no-space,
+.tabber__pane--no-space {
+  padding: 0 !important;
+}
+
+%tabber__pane--inner-space,
+.tabber__pane--inner-space {
+  padding: 1rem 2rem;
+
+  @include breakpoint($medium) {
+    padding: 2rem 7rem 3rem 4rem;
+  }
+}
+
+%tabber__pane--inner-title,
+.tabber__pane--inner-title {
+  padding: 1rem 2rem;
+
+  @include breakpoint($medium) {
+    padding: 2rem 7rem 2rem 4rem;
+  }
+}
+
+.tabber__nav,
+%tabber__nav {
+  @extend %flex-box;
+  @extend %list-inline;
+  background: color(white);
+  border: none;
+  border-bottom: 1px solid color(grey-light);
+  position: relative;
+  width: 100%;
+  height: auto;
+  clear: both;
+  text-align: center;
+
+  @include small-screens() {
+    &,
+    .flexbox & {
+      display: none;
+    }
+  }
+
+  li {
+    @extend %flex-box__item;
+    width: 30%; // for browsers without flexbox (IE9 & 10).
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+// Fugly.
+.horizontal-tabs {
+  @extend %tabber;
+
+  .horizontal-tabs-list {
+    @extend %tabber__nav;
+
+    a {
+      @extend %tabber__nav-item;
+    }
+    strong {
+      font-weight: 300;
+    }
+    .selected a {
+      @extend %tabber__nav-item--active;
+    }
+  }
+
+  .tabber__mobile-item.selected {
+    @extend %tabber__nav-item--active;
+  }
+
+  legend {
+    @extend %element-invisible;
+  }
+
+  .horizontal-tabs-pane {
+    @extend %tabber__pane;
+  }
+
+  .horizontal-tab-hidden {
+    @extend %element-invisible;
+  }
+
+  .heading--4 {
+    color: color(black);
+  }
+}

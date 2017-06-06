@@ -1,0 +1,25 @@
+// Poll Results
+//
+// Markup: poll-results.html
+//
+// .poll-results--binary - A simple yes/no poll
+//
+// Styleguide components.poll-results
+
+%poll-results,
+.poll-results {
+  padding-bottom: 1rem;
+
+  &__title {
+    @extend %font__medium;
+  }
+
+  &__total {
+    @extend %font__small;
+  }
+}
+
+%poll-results--binary,
+.poll-results--binary {
+  @extend %progress-bar--collapsed;
+}

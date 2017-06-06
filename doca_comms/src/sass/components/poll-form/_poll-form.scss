@@ -1,0 +1,87 @@
+// Poll Form
+//
+// Markup: poll-form.html
+//
+// .poll-form--binary - A simple yes/no poll
+//
+// Styleguide components.poll-form
+
+%poll-form,
+.poll-form {
+  padding-bottom: 1rem;
+
+  &__title {
+    @extend %font__medium;
+    margin: 0 0 1rem;
+  }
+
+  &__button {
+    @extend %button--alt;
+  }
+
+  &__option {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  &__binary-option-wrapper {
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+%poll-form__no-space,
+.poll-form__no-space {
+  &.poll-form { padding: 0; }
+}
+
+%poll-form__binary-option,
+.poll-form__binary-option {
+  margin-right: 0.5rem;
+  display: inline-block;
+
+  .js & input {
+    @extend %element-invisible;
+  }
+
+  label {
+    @extend %button--text;
+
+    &.is-active {
+      border-color: color(green);
+      background-color: color(green);
+      color: color(white);
+    }
+  }
+}
+
+
+%poll-form--binary,
+.poll-form--binary {
+  .poll-form__choices {
+    @extend %poll-form__binary-option-wrapper;
+  }
+  .poll-form__option {
+    @extend %poll-form__binary-option;
+  }
+}
+
+// Fugly.
+
+.poll-form {
+  .form-type-radio {
+    @extend %poll-form__option;
+  }
+  .form-submit {
+    @extend %poll-form__button;
+  }
+}
+.poll-form--binary {
+  .form-type-radio {
+    @extend %poll-form__binary-option;
+  }
+  .form-item {
+    padding-bottom: 0;
+  }
+}
