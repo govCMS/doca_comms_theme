@@ -1,4 +1,14 @@
-.header-search__form .form-submit, .header-search__icon--button, .header-search__icon--link, .header-search__icon, .no-mediaqueries .header__logo, .offscreen__toggle, .twitter-account__icon, .hide-text {
+/*
+ * ======================
+ * Site common style
+ * ======================
+ */
+/*
+ * ======================
+ * Site Style Init
+ * ======================
+ */
+.header-search__form .form-submit, .header-search__icon--button, .header-search__icon--link, .header-search__icon, .no-mediaqueries .header__logo, .offscreen__toggle, .hide-text {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -357,39 +367,39 @@ a:hover, a:active {
   }
 }
 
-.clearfix:before, .layout-four-column:before, .grid-data:before, .statistic__wrapper:before, .twitter-stream:before, .layout-three-column:before, .grid-stream:before, .page-404__wrapper:before, .layout-two-column:before, .alert-list__wrapper:before, .channel-list__grid-container:before, .featured__grid-container:before, .page-description--arts-brand:before, .promotional-feature__item:before, .layout-max--sm-med-lrg:before, .tabs-primary:before, h1:before, .heading--1--no-space:before, .heading--1--light:before, .heading--1:before, .document-list:before, .webform-client-form:before, .contact-form:before, .form:before, .filter__wrapper:before, .messages--status:before, .messages--warning:before, .messages--error:before, .messages:before, .news-list:before, .on-this-page:before, body.node-type-poll #page .main_content:before, .site-feedback-block__inner:before, .subsite-header__layout:before, .subsite-header__nav:before, .subsite-header__list:before, .group-funding-tabs-heading h2:before, .top-notification__inner:before, .layout-max:before, .node-book:before, .grid-stream__item:before, .grid-stream__item--landscape-small:before, .grid-stream__item--landscape-small--has-image:before, .grid-stream__item--landscape-small--has-image-description:before, .grid-stream__item--landscape:before, .grid-stream__item--portrait-small:before, .grid-stream__item--portrait:before, .grid-stream__item--vertical:before, .grid-stream__item--vertical--has-image:before, .grid-stream__item--vertical--has-image-description:before, .grid-stream__has-update:before, .copyright:before, .document-list__desc:before, .document-list__desc--comment:before, .on-this-page__menu:before {
+.clearfix:before, .layout-four-column:before, .grid-data:before, .statistic__wrapper:before, .layout-three-column:before, .grid-stream:before, .page-404__wrapper:before, .layout-two-column:before, .alert-list__wrapper:before, .channel-list__grid-container:before, .featured__grid-container:before, .page-description--arts-brand:before, .promotional-feature__item:before, .layout-max--sm-med-lrg:before, .tabs-primary:before, h1:before, .heading--1--no-space:before, .heading--1--light:before, .heading--1:before, .document-list:before, .webform-client-form:before, .contact-form:before, .form:before, .filter__wrapper:before, .messages--status:before, .messages--warning:before, .messages--error:before, .messages:before, .news-list:before, .on-this-page:before, body.node-type-poll #page .main_content:before, .site-feedback-block__inner:before, .subsite-header__layout:before, .subsite-header__nav:before, .subsite-header__list:before, .group-funding-tabs-heading h2:before, .top-notification__inner:before, .layout-max:before, .node-book:before, .grid-stream__item:before, .grid-stream__item--landscape-small:before, .grid-stream__item--landscape-small--has-image:before, .grid-stream__item--landscape-small--has-image-description:before, .grid-stream__item--landscape:before, .grid-stream__item--portrait-small:before, .grid-stream__item--portrait:before, .grid-stream__item--vertical:before, .grid-stream__item--vertical--has-image:before, .grid-stream__item--vertical--has-image-description:before, .grid-stream__has-update:before, .copyright:before, .document-list__desc:before, .document-list__desc--comment:before, .on-this-page__menu:before {
   content: '';
   display: table;
 }
-.clearfix:after, .layout-four-column:after, .grid-data:after, .statistic__wrapper:after, .twitter-stream:after, .layout-three-column:after, .grid-stream:after, .page-404__wrapper:after, .layout-two-column:after, .alert-list__wrapper:after, .channel-list__grid-container:after, .featured__grid-container:after, .page-description--arts-brand:after, .promotional-feature__item:after, .layout-max--sm-med-lrg:after, .tabs-primary:after, h1:after, .heading--1--no-space:after, .heading--1--light:after, .heading--1:after, .document-list:after, .webform-client-form:after, .contact-form:after, .form:after, .filter__wrapper:after, .messages--status:after, .messages--warning:after, .messages--error:after, .messages:after, .news-list:after, .on-this-page:after, body.node-type-poll #page .main_content:after, .site-feedback-block__inner:after, .subsite-header__layout:after, .subsite-header__nav:after, .subsite-header__list:after, .group-funding-tabs-heading h2:after, .top-notification__inner:after, .layout-max:after, .node-book:after, .grid-stream__item:after, .grid-stream__item--landscape-small:after, .grid-stream__item--landscape-small--has-image:after, .grid-stream__item--landscape-small--has-image-description:after, .grid-stream__item--landscape:after, .grid-stream__item--portrait-small:after, .grid-stream__item--portrait:after, .grid-stream__item--vertical:after, .grid-stream__item--vertical--has-image:after, .grid-stream__item--vertical--has-image-description:after, .grid-stream__has-update:after, .copyright:after, .document-list__desc:after, .document-list__desc--comment:after, .on-this-page__menu:after {
+.clearfix:after, .layout-four-column:after, .grid-data:after, .statistic__wrapper:after, .layout-three-column:after, .grid-stream:after, .page-404__wrapper:after, .layout-two-column:after, .alert-list__wrapper:after, .channel-list__grid-container:after, .featured__grid-container:after, .page-description--arts-brand:after, .promotional-feature__item:after, .layout-max--sm-med-lrg:after, .tabs-primary:after, h1:after, .heading--1--no-space:after, .heading--1--light:after, .heading--1:after, .document-list:after, .webform-client-form:after, .contact-form:after, .form:after, .filter__wrapper:after, .messages--status:after, .messages--warning:after, .messages--error:after, .messages:after, .news-list:after, .on-this-page:after, body.node-type-poll #page .main_content:after, .site-feedback-block__inner:after, .subsite-header__layout:after, .subsite-header__nav:after, .subsite-header__list:after, .group-funding-tabs-heading h2:after, .top-notification__inner:after, .layout-max:after, .node-book:after, .grid-stream__item:after, .grid-stream__item--landscape-small:after, .grid-stream__item--landscape-small--has-image:after, .grid-stream__item--landscape-small--has-image-description:after, .grid-stream__item--landscape:after, .grid-stream__item--portrait-small:after, .grid-stream__item--portrait:after, .grid-stream__item--vertical:after, .grid-stream__item--vertical--has-image:after, .grid-stream__item--vertical--has-image-description:after, .grid-stream__has-update:after, .copyright:after, .document-list__desc:after, .document-list__desc--comment:after, .on-this-page__menu:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.clearfix__overflow, .footer__wrapper, .news-list__item, .on-this-page, .twitter-account, .update--extra__wrapper {
+.clearfix__overflow, .footer__wrapper, .news-list__item, .on-this-page, .update--extra__wrapper {
   display: block;
   overflow: hidden;
   width: 100%;
 }
 
-.layout-four-column, .grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg, .tabs-primary, h1, .heading--1--no-space, .heading--1--light, .heading--1, .document-list, .webform-client-form, .contact-form, .form, .filter__wrapper, .messages--status, .messages--warning, .messages--error, .messages, .news-list, .on-this-page, body.node-type-poll #page .main_content, .site-feedback-block__inner, .subsite-header__layout, .subsite-header__nav, .subsite-header__list, .group-funding-tabs-heading h2, .top-notification__inner, .layout-max, .node-book {
+.layout-four-column, .grid-data, .statistic__wrapper, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg, .tabs-primary, h1, .heading--1--no-space, .heading--1--light, .heading--1, .document-list, .webform-client-form, .contact-form, .form, .filter__wrapper, .messages--status, .messages--warning, .messages--error, .messages, .news-list, .on-this-page, body.node-type-poll #page .main_content, .site-feedback-block__inner, .subsite-header__layout, .subsite-header__nav, .subsite-header__list, .group-funding-tabs-heading h2, .top-notification__inner, .layout-max, .node-book {
   clear: both;
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.layout-four-column, .grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg {
+.layout-four-column, .grid-data, .statistic__wrapper, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg {
   max-width: 360px;
 }
 @media (min-width: 720px) {
-  .layout-four-column, .grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg {
+  .layout-four-column, .grid-data, .statistic__wrapper, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg {
     max-width: 720px;
   }
 }
 @media (min-width: 980px) {
-  .layout-four-column, .grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg {
+  .layout-four-column, .grid-data, .statistic__wrapper, .layout-three-column, .grid-stream, .page-404__wrapper, .layout-two-column, .alert-list__wrapper, .channel-list__grid-container, .featured__grid-container, .page-description--arts-brand, .promotional-feature__item, .layout-max--sm-med-lrg {
     max-width: 1280px;
   }
 }
@@ -546,7 +556,7 @@ a:hover, a:active {
   color: #12293a;
 }
 
-.grid-data, .statistic__wrapper, .twitter-stream, .layout-three-column {
+.grid-data, .statistic__wrapper, .layout-three-column {
   overflow: hidden;
 }
 
@@ -1317,7 +1327,7 @@ h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5,
   margin: 1rem 0 2rem;
 }
 
-.subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding, .promotional-feature--dark, .update--extra, .spacer, .node-book {
+.subsite-header__emblem, .update--extra__wrapper, .spacer--medium, .bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .spacer--vertical, h1, .heading--1--no-space, .heading--1--light, .heading--1, .grid-stream__item__left, .grid-stream__item--landscape-small__left, .grid-stream__item--landscape__left, .grid-stream__2-col .grid-stream__item--portrait-small__left, .grid-stream__item--portrait-small__left, .grid-stream__item--portrait__left, .spacer--horizontal, .channel-list__grid-container, .document-list, .webform-client-form, .contact-form, .form, .grid-data, .header, .news-list, .on-this-page, .page-404__wrapper, .promotional-feature__item, .spacer--large, .grid-stream, .alert-list__wrapper, .alert-list__item, .form__group--top-arrow, .form__group, .grid-stream__item--vertical__bottom, .grid-stream__item--vertical__bottom--small, .palette__dark-grey--group .ds-groups-wrapper .progress-bar__bar--funding, .promotional-feature--dark, .update--extra, .spacer, .node-book {
   padding: 1rem;
 }
 
@@ -1327,7 +1337,7 @@ h5, .heading--5--no-space, .heading--5--light, .heading--5--spaced, .heading--5,
   }
 }
 
-.bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .twitter-account, .spacer--vertical {
+.bordered--vertical, .list-arrow, .form__action, .filter__button, .filter--orig .filter, .spacer--vertical {
   padding-left: 0;
   padding-right: 0;
 }
@@ -2158,10 +2168,10 @@ h2.subtitle {
   border-color: currentColor;
 }
 
-.underline-on-hover__never, .header-search__form .form-submit, .header-search__icon--button, .header-search__icon--link, .header-search__icon, .no-mediaqueries .header__logo, .offscreen__toggle, .twitter-account__icon, .hide-text, .underline-on-hover__never__wrapper a, .copyright__item a, .header__logo, .link-top, .subsite-header__logo-large, .subsite-header__logo-small, .twitter-account {
+.underline-on-hover__never, .header-search__form .form-submit, .header-search__icon--button, .header-search__icon--link, .header-search__icon, .no-mediaqueries .header__logo, .offscreen__toggle, .hide-text, .underline-on-hover__never__wrapper a, .copyright__item a, .header__logo, .link-top, .subsite-header__logo-large, .subsite-header__logo-small {
   border-color: transparent;
 }
-.underline-on-hover__never:hover, .underline-on-hover__never:focus, .underline-on-hover__never:link:hover, .underline-on-hover__never:link:focus, .header-search__form .form-submit:hover, .header-search__icon--button:hover, .header-search__icon--link:hover, .header-search__icon:hover, .offscreen__toggle:hover, .twitter-account__icon:hover, .hide-text:hover, .underline-on-hover__never__wrapper a:hover, .copyright__item a:hover, .header__logo:hover, .link-top:hover, .subsite-header__logo-large:hover, .subsite-header__logo-small:hover, .twitter-account:hover, .header-search__form .form-submit:focus, .header-search__icon--button:focus, .header-search__icon--link:focus, .header-search__icon:focus, .offscreen__toggle:focus, .twitter-account__icon:focus, .hide-text:focus, .underline-on-hover__never__wrapper a:focus, .copyright__item a:focus, .header__logo:focus, .link-top:focus, .subsite-header__logo-large:focus, .subsite-header__logo-small:focus, .twitter-account:focus, .header-search__form .form-submit:link:hover, .header-search__icon--button:link:hover, .header-search__icon--link:link:hover, .header-search__icon:link:hover, .offscreen__toggle:link:hover, .twitter-account__icon:link:hover, .hide-text:link:hover, .underline-on-hover__never__wrapper a:link:hover, .copyright__item a:link:hover, .header__logo:link:hover, .link-top:link:hover, .subsite-header__logo-large:link:hover, .subsite-header__logo-small:link:hover, .twitter-account:link:hover, .header-search__form .form-submit:link:focus, .header-search__icon--button:link:focus, .header-search__icon--link:link:focus, .header-search__icon:link:focus, .offscreen__toggle:link:focus, .twitter-account__icon:link:focus, .hide-text:link:focus, .underline-on-hover__never__wrapper a:link:focus, .copyright__item a:link:focus, .header__logo:link:focus, .link-top:link:focus, .subsite-header__logo-large:link:focus, .subsite-header__logo-small:link:focus, .twitter-account:link:focus {
+.underline-on-hover__never:hover, .underline-on-hover__never:focus, .underline-on-hover__never:link:hover, .underline-on-hover__never:link:focus, .header-search__form .form-submit:hover, .header-search__icon--button:hover, .header-search__icon--link:hover, .header-search__icon:hover, .offscreen__toggle:hover, .hide-text:hover, .underline-on-hover__never__wrapper a:hover, .copyright__item a:hover, .header__logo:hover, .link-top:hover, .subsite-header__logo-large:hover, .subsite-header__logo-small:hover, .header-search__form .form-submit:focus, .header-search__icon--button:focus, .header-search__icon--link:focus, .header-search__icon:focus, .offscreen__toggle:focus, .hide-text:focus, .underline-on-hover__never__wrapper a:focus, .copyright__item a:focus, .header__logo:focus, .link-top:focus, .subsite-header__logo-large:focus, .subsite-header__logo-small:focus, .header-search__form .form-submit:link:hover, .header-search__icon--button:link:hover, .header-search__icon--link:link:hover, .header-search__icon:link:hover, .offscreen__toggle:link:hover, .hide-text:link:hover, .underline-on-hover__never__wrapper a:link:hover, .copyright__item a:link:hover, .header__logo:link:hover, .link-top:link:hover, .subsite-header__logo-large:link:hover, .subsite-header__logo-small:link:hover, .header-search__form .form-submit:link:focus, .header-search__icon--button:link:focus, .header-search__icon--link:link:focus, .header-search__icon:link:focus, .offscreen__toggle:link:focus, .hide-text:link:focus, .underline-on-hover__never__wrapper a:link:focus, .copyright__item a:link:focus, .header__logo:link:focus, .link-top:link:focus, .subsite-header__logo-large:link:focus, .subsite-header__logo-small:link:focus {
   border-color: transparent;
 }
 
@@ -6783,140 +6793,6 @@ img.iefix {
   height: auto;
   width: auto;
   overflow: auto;
-}
-
-.twitter-account {
-  color: #12293a;
-  line-height: 24px;
-  max-width: 250px;
-}
-
-.twitter-account__avatar {
-  float: left;
-  margin-right: 1rem;
-}
-
-.twitter-account__icon {
-  width: 22px;
-  height: 22px;
-  display: inline-block;
-  vertical-align: bottom;
-  background-image: url("../images/twitter.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-html {
-  font-size: 100% !important;
-}
-
-.twitter-stream {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.twitter-timeline {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: 540px;
-}
-@media (min-width: 480px) {
-  .twitter-timeline {
-    height: 540px;
-  }
-}
-@media (min-width: 720px) {
-  .twitter-timeline {
-    height: 360px;
-  }
-}
-@media (min-width: 980px) {
-  .twitter-timeline {
-    height: 180px;
-  }
-}
-.twitter-timeline .timeline {
-  max-width: 100% !important;
-}
-
-.timeline-TweetList .TweetAuthor-avatar {
-  display: none !important;
-}
-.timeline-TweetList .timeline-Tweet-text, .timeline-TweetList .timeline-Tweet-author, .timeline-TweetList .timeline-Tweet-actions {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-.timeline-TweetList .timeline-Tweet-retweetCredit {
-  margin-left: 0 !important;
-}
-.timeline-TweetList .timeline-TweetList-tweet {
-  margin-bottom: 1rem;
-  clear: left;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0 !important;
-  margin-bottom: 20px !important;
-  position: relative !important;
-  height: 160px;
-}
-@media (min-width: 670px) and (max-width: 980px) {
-  .timeline-TweetList .timeline-TweetList-tweet {
-    width: 48.93617%;
-    clear: right;
-    float: left;
-    margin-left: 0;
-    margin-right: 2.12766%;
-    clear: none;
-  }
-  .timeline-TweetList .timeline-TweetList-tweet:nth-of-type(2n+2) {
-    width: 48.93617%;
-    clear: right;
-    float: right;
-    margin-right: 0;
-  }
-}
-@media (min-width: 980px) {
-  .timeline-TweetList .timeline-TweetList-tweet {
-    width: 31.91489%;
-    clear: right;
-    float: left;
-    margin-left: 0;
-    margin-right: 2.12766%;
-  }
-  .timeline-TweetList .timeline-TweetList-tweet:nth-of-type(3n+3) {
-    width: 31.91489%;
-    clear: right;
-    float: right;
-    margin-right: 0;
-  }
-}
-.timeline-TweetList .timeline-TweetList-tweet p {
-  margin-bottom: 0;
-}
-@media (min-width: 480px) {
-  .timeline-TweetList .timeline-TweetList-tweet {
-    height: 160px;
-  }
-}
-@media (min-width: 720px) {
-  .timeline-TweetList .timeline-TweetList-tweet {
-    height: 160px;
-  }
-}
-@media (min-width: 980px) {
-  .timeline-TweetList .timeline-TweetList-tweet {
-    height: 160px;
-  }
-}
-.timeline-TweetList .timeline-TweetList-tweet .timeline-Tweet-text {
-  font-weight: 300 !important;
-  font-size: 1rem !important;
-  line-height: 1.5rem !important;
-}
-.timeline-TweetList .timeline-TweetList-tweet .MediaCard-media {
-  display: none !important;
 }
 
 .update, .update--extra {
