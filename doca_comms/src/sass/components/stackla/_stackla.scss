@@ -1,0 +1,11 @@
+// Spacer
+//
+// Markup: spacer.html
+//
+// Styleguide components.spacer
+%stacklafw, .stacklafw {
+  padding: 1rem;
+  @include breakpoint($medium) {
+    padding-top: 3rem;
+  }
+}
