@@ -1,10 +1,25 @@
-var year_toggled = false;
-var cat_toggled = false;
-var winner_val = "All";
-
 (function ($, Drupal) {
-
   'use strict';
+
+  var year_toggled = false;
+  var cat_toggled = false;
+  var winner_val = "All";
+
+  function removeThrobber() {
+    $('.ajax-progress-throbber').remove();
+  }
+
+  function addThrobber(element) {
+    removeThrobber();
+    element.after('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
+  }
+
+  function disableFilters() {
+    $('.view-filters [name="field_winner_value"]').attr('disabled', 'disabled');
+    $('.view-filters [id^="filter-wrapper-bookyear-tid"] input').attr('disabled', 'disabled');
+    $('.view-filters [id^="filter-wrapper-booktype-tid"] input').attr('disabled', 'disabled');
+    $('.view-filters .manual [name="combine"]').attr('disabled', 'disabled');
+  }
 
   /**
    *
@@ -17,36 +32,13 @@ var winner_val = "All";
 
         // The winners select list keeps resetting, this code ensures it's value
         // is maintained across ajax calls.
-        if ($('.view-filters [name="field_winner_value"]')
-                .val() != winner_val) {
-          $('.view-filters [name="field_winner_value"]')
-              .val(winner_val)
-              .change();
+        if ($('.view-filters[name="field_winner_value"]').val() != winner_val) {
+          $('.view-filters[name="field_winner_value"]').val(winner_val).change();
         }
-        $('.view-filters [name="field_winner_value"]')
-            .bind('change', function () {
-              winner_val = $('.view-filters [name="field_winner_value"]').val();
-            });
+        $('.view-filters[name="field_winner_value"]').bind('change', function () {
+          winner_val = $('.view-filters [name="field_winner_value"]').val();
+        });
 
-        function removeThrobber() {
-          $('.ajax-progress-throbber').remove();
-        }
-
-        function addThrobber(element) {
-          removeThrobber();
-          element.after('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
-        }
-
-        function disableFilters() {
-          $('.view-filters [name="field_winner_value"]')
-              .attr('disabled', 'disabled');
-          $('.view-filters [id^="filter-wrapper-bookyear-tid"] input')
-              .attr('disabled', 'disabled');
-          $('.view-filters [id^="filter-wrapper-booktype-tid"] input')
-              .attr('disabled', 'disabled');
-          $('.view-filters .manual [name="combine"]')
-              .attr('disabled', 'disabled');
-        }
 
         var textHeight;
         if ($('#edit-combine').val() != '') {
