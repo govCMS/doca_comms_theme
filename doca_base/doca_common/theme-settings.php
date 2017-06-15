@@ -275,13 +275,17 @@ function _doca_common_form_system_theme_settings_alter_submit(&$form, &$form_sta
   _doca_common_reset_block($context, $subsite1);
   _doca_common_reset_term($context, $subsite1);
   // Change the default form ID for the Funding and Support.
-  $field = field_read_instance('node', 'field_funding_app_webform', 'funding');
-  $field['default_value'] = [
-    0 => [
-      'target_id' => $form_state['values']['funding_default_wform_nid'],
-    ],
-  ];
-  field_update_instance($field);
+  if (!empty($form_state['values']['funding_default_wform_nid'])) {
+    $field = field_read_instance('node', 'field_funding_app_webform', 'funding');
+    if ($field) {
+      $field['default_value'] = [
+        0 => [
+          'target_id' => $form_state['values']['funding_default_wform_nid'],
+        ],
+      ];
+      field_update_instance($field);
+    }
+  }
 }
 
 /**
@@ -293,11 +297,13 @@ function _doca_common_form_system_theme_settings_alter_submit(&$form, &$form_sta
  *        The new term id.
  */
 function _doca_common_reset_menu($context, $tid) {
-  reset($context->conditions['menu']['values']);
-  $key = key($context->conditions['menu']['values']);
-  unset($context->conditions['menu']['values'][$key]);
-  $context->conditions['menu']['values']['taxonomy/term/' . $tid] = 'taxonomy/term/' . $tid;
-  context_save($context);
+  if (!empty($context->conditions['menu']['values']) && is_array($context->conditions['menu']['values'])) {
+    reset($context->conditions['menu']['values']);
+    $key = key($context->conditions['menu']['values']);
+    unset($context->conditions['menu']['values'][$key]);
+    $context->conditions['menu']['values']['taxonomy/term/' . $tid] = 'taxonomy/term/' . $tid;
+    context_save($context);
+  }
 }
 
 /**
@@ -309,10 +315,12 @@ function _doca_common_reset_menu($context, $tid) {
  *        The new term id.
  */
 function _doca_common_reset_term($context, $tid) {
-  reset($context->conditions['node_taxonomy']['values']);
-  unset($context->conditions['node_taxonomy']['values']);
-  $context->conditions['node_taxonomy']['values'] = [$tid => $tid];
-  context_save($context);
+  if (!empty($context->conditions['menu']['values']) && is_array($context->conditions['menu']['values'])) {
+    reset($context->conditions['node_taxonomy']['values']);
+    unset($context->conditions['node_taxonomy']['values']);
+    $context->conditions['node_taxonomy']['values'] = [$tid => $tid];
+    context_save($context);
+  }
 }
 
 /**
@@ -324,25 +332,27 @@ function _doca_common_reset_term($context, $tid) {
  *        The new term id.
  */
 function _doca_common_reset_block(&$context, $tid) {
-  $key = key($context->reactions['block']['blocks']);
-  if ($tid < 1) {
-    unset($context->reactions['block']['blocks'][$key]);
-  }
-  // Get the block ID for the menu block of the second sub theme.
-  $results = db_query("select name from variable where name like 'menu_block___parent'")
-    ->fetchCol(0);
-  foreach ($results as $name) {
-    $value = str_replace('main-menu:', '', variable_get($name));
-    $term = db_query("select link_path from {menu_links} ml where ml.mlid = :mlid", [':mlid' => $value])
-      ->fetchCol(0)[0];
-    if ($term == 'taxonomy/term/' . $tid) {
-      $menu_block = str_replace('menu_block_', '', str_replace('_parent', '', $name));
-      if ($key != 'menu_block-' . $menu_block) {
-        $context->reactions['block']['blocks']['menu_block-' . $menu_block]['module'] = 'menu_block';
-        $context->reactions['block']['blocks']['menu_block-' . $menu_block]['delta'] = $menu_block;
-        $context->reactions['block']['blocks']['menu_block-' . $menu_block]['region'] = 'highlighted';
-        $context->reactions['block']['blocks']['menu_block-' . $menu_block]['weight'] = -10;
-        unset($context->reactions['block']['blocks'][$key]);
+  if (!empty($context->reactions['block']['blocks']) && is_array($context->reactions['block']['blocks'])) {
+    $key = key($context->reactions['block']['blocks']);
+    if ($tid < 1) {
+      unset($context->reactions['block']['blocks'][$key]);
+    }
+    // Get the block ID for the menu block of the second sub theme.
+    $results = db_query("select name from variable where name like 'menu_block___parent'")
+      ->fetchCol(0);
+    foreach ($results as $name) {
+      $value = str_replace('main-menu:', '', variable_get($name));
+      $term = db_query("select link_path from {menu_links} ml where ml.mlid = :mlid", [':mlid' => $value])
+        ->fetchCol(0)[0];
+      if ($term == 'taxonomy/term/' . $tid) {
+        $menu_block = str_replace('menu_block_', '', str_replace('_parent', '', $name));
+        if ($key != 'menu_block-' . $menu_block) {
+          $context->reactions['block']['blocks']['menu_block-' . $menu_block]['module'] = 'menu_block';
+          $context->reactions['block']['blocks']['menu_block-' . $menu_block]['delta'] = $menu_block;
+          $context->reactions['block']['blocks']['menu_block-' . $menu_block]['region'] = 'highlighted';
+          $context->reactions['block']['blocks']['menu_block-' . $menu_block]['weight'] = -10;
+          unset($context->reactions['block']['blocks'][$key]);
+        }
       }
     }
   }
