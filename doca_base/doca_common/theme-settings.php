@@ -59,29 +59,14 @@ function doca_common_form_system_theme_settings_alter(&$form, $form_state) {
     '#default_value' => theme_get_setting('cookie_textarea'),
     '#description' => t("This is the message that will appear in the cookie notification at the top of your site."),
   ];
-  // RSS author
+  // RSS author.
   $form['rss_author'] = [
-    '#type' => 'textfield',
+    '#type' => 'textarea',
     '#title' => t('RSS Author'),
     '#default_value' => theme_get_setting('rss_author'),
-    '#description' => t('Set author name to appear in the dc:creator field in RSS feeds.'),
-  ];
-  // External link popup controls
-  $form['external_link_popup'] = [
-    '#type' => 'fieldset',
-    '#title' => t('External link popup'),
-  ];
-  $form['external_link_popup']['external_link_enable_popup'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable external link popup'),
-    '#default_value' => theme_get_setting('external_link_enable_popup'),
-    '#description' => t('Display a popup modal window when an external link is clicked.'),
-  ];
-  $form['external_link_popup']['external_link_popup_text'] = [
-    '#type' => 'textarea',
-    '#title' => t('Text in the popup window'),
-    '#default_value' => theme_get_setting('external_link_popup_text'),
-    '#description' => t('Text to be display in the external link popup.'),
+    '#description' => t('Set author for each RSS feed. Enter one feed per line as <strong>path to feed,author name</strong> 
+            separated by a comma. For example: <strong>news/feed,The Media Team</strong>. If no value is provided, the site 
+            name will be used as the default author name.'),
   ];
 
   foreach ($form as $k => $v) {
@@ -94,6 +79,33 @@ function doca_common_form_system_theme_settings_alter(&$form, $form_state) {
       unset($form[$k]);
     }
   }
+
+  // External link popup controls.
+  $form['external_link_popup'] = [
+    '#type' => 'fieldset',
+    '#title' => t('External link popup'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#group' => 'group_tabs',
+  ];
+  $form['external_link_popup']['external_link_enable_popup'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable external link popup'),
+    '#default_value' => theme_get_setting('external_link_enable_popup'),
+    '#description' => t('Display a popup modal window when an external link is clicked.'),
+  ];
+  $form['external_link_popup']['external_link_popup_title'] = [
+    '#type' => 'textfield',
+    '#title' => t('Title text in the popup window'),
+    '#default_value' => theme_get_setting('external_link_popup_title'),
+    '#description' => t('Title text to be display in the external link popup.'),
+  ];
+  $form['external_link_popup']['external_link_popup_text'] = [
+    '#type' => 'textarea',
+    '#title' => t('Text in the popup window'),
+    '#default_value' => theme_get_setting('external_link_popup_text'),
+    '#description' => t('Text to be display in the external link popup.'),
+  ];
 
   // Site pages feedback settings.
   $form['feedback'] = [
