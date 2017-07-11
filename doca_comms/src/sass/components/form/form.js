@@ -49,7 +49,7 @@
         if (formalSubmissionNotify.length > 0) {
           // Set the value of each email_notification field.
           $(formalSubmissionNotify).each(function() {
-            $(this).val(Drupal.settings.dcomms_theme.formalSubmissionNotify);
+            $(this).val(Drupal.settings.doca_common.formalSubmissionNotify);
           });
         }
       } catch(e) {}
