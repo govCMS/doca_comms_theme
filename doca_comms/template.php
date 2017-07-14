@@ -78,6 +78,19 @@ function dcomms_theme_form_alter(&$form, &$form_state, $form_id) {
     }
   }
 }
+/**
+ * Implements hook_menu_alter().
+ */
+function dcomms_theme_menu_alter(&$items) {
+    // Alter node clone link.
+    if (isset($items['node/%node/clone/%clone_token'])) {
+        // Convert to tab.
+        $items['node/%node/clone/%clone_token']['type'] = MENU_LOCAL_TASK;
+
+        // Move tab to the end.
+        $items['node/%node/clone/%clone_token']['weight'] = 10;
+    }
+}
 
 /**
  * Implements hook_block_view_alter().
