@@ -240,3 +240,16 @@ function doca_common_related_content($node) {
 function doca_common_trim($markup, $trim_length) {
   return truncate_utf8(strip_tags($markup), $trim_length, TRUE, TRUE);
 }
+/**
+ * Implements hook_menu_alter().
+ */
+function doca_common_menu_alter(&$items) {
+    // Alter node clone link.
+    if (isset($items['node/%node/clone/%clone_token'])) {
+        // Convert to tab.
+        $items['node/%node/clone/%clone_token']['type'] = MENU_LOCAL_TASK;
+
+        // Move tab to the end.
+        $items['node/%node/clone/%clone_token']['weight'] = 10;
+    }
+}
