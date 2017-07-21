@@ -1,6 +1,6 @@
 # DoCA Site Theme
 
-The Department of Communications and Arts theme for the govCMS website
+govCMS theme for Department of Communications and the Arts (communications.gov.au)
 
 ## Overview
 
