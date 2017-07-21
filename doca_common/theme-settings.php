@@ -232,7 +232,7 @@ function doca_common_form_system_theme_settings_alter(&$form, $form_state) {
  * @param array &$form_state
  *        The drupal form_state array.
  */
-function _doca_common_form_system_theme_settings_alter_validate(&$form, &$form_state) {
+function _doca_common_form_system_theme_settings_alter_validate($form, &$form_state) {
   for ($i = 1; $i < 5; $i++) {
     if (isset($form_state['values']['sub_theme_' . $i]) && $form_state['values']['sub_theme_' . $i] > 0) {
       $form_state['values']['sub_theme_' . $i . '_title'] = taxonomy_term_load($form_state['values']['sub_theme_' . $i])->name;
