@@ -1,0 +1,6 @@
+@import 'components/spacer/spacer';
+
+#page .field-name-field-body{
+  @extend %spacer;
+  @extend %layout-max;
+}
