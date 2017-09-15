@@ -1,0 +1,15 @@
+@import 'components/spacer/spacer';
+@import 'layouts/layout-sidebar/layout-sidebar';
+
+.field-name-field-body {
+  @extend %spacer;
+  @extend %layout-max;
+  div:first-child{
+    @extend %max-width__medium;
+
+  }
+  div:nth-child(2){
+    @extend %max-width__content;
+  }
+}
+
