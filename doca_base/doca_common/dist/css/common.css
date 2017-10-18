@@ -6922,3 +6922,49 @@ img.iefix {
     display: block;
   }
 }
+
+body.page-search .file__wrapper--slim,
+body.page-search .file__wrapper {
+  float: left;
+}
+body.page-search .layout-sidebar__sidebar {
+  margin-top: 2.25em;
+}
+body.page-search .layout-sidebar__sidebar .block-facetapi {
+  margin-bottom: 2em;
+}
+body.page-search .layout-sidebar__sidebar .block-facetapi .list-arrow {
+  border-bottom: 0;
+}
+body.page-search .layout-sidebar__sidebar .block-facetapi .list-arrow ul {
+  list-style-image: url("../../dist/images/arrow--grey.svg");
+  padding-left: 13px;
+}
+body.page-search .layout-sidebar__sidebar .block-facetapi .list-arrow ul li {
+  padding-left: 0;
+}
+body.page-search .layout-sidebar__sidebar .block-facetapi .list-arrow a.facetapi-active {
+  border-bottom: 0;
+}
+body.page-search .layout-sidebar__sidebar .block-facetapi .list-arrow a.facetapi-active img {
+  width: 0.6em;
+  height: 0.6em;
+  top: -0.35em;
+  position: relative;
+  margin-left: 0.2em;
+}
+body.page-search .layout-sidebar__sidebar .block-facetapi .list-arrow a.facetapi-active:hover img, body.page-search .layout-sidebar__sidebar .block-facetapi .list-arrow a.facetapi-active:active img, body.page-search .layout-sidebar__sidebar .block-facetapi .list-arrow a.facetapi-active:focus img {
+  -webkit-filter: contrast(200%) saturate(200%) hue-rotate(315deg) opacity(80%) sepia(0.1);
+  filter: contrast(200%) saturate(200%) hue-rotate(315deg) opacity(80%) sepia(0.1);
+}
+
+@media (max-width: 979px) {
+  body.page-search .block-facetapi {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+body.section-have-your-say .filter__button,
+body.section-funding-and-support .filter__button {
+  clear: inherit;
+}

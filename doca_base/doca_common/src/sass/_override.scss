@@ -1,0 +1,10 @@
+body {
+  &.section-have-your-say, &.section-funding-and-support {
+    %filter,
+    .filter {
+      &__button {
+        clear: inherit;
+      }
+    }
+  }
+} 
