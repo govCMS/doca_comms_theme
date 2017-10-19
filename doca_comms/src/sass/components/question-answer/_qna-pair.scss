@@ -27,15 +27,15 @@
 }
 
 .qnapair__button.accordion__button {
-  background: url("../images/question-blue.png") 0 0 no-repeat transparent;
+  background: url("../../../doca_base/doca_common/dist/images/question-grey.png") 0 0 no-repeat transparent;
   padding-left: 40px;
   padding-top: 2px;
   text-align: left;
   &:hover, &:focus {
-    background: url("../images/question-blue.png") 0 0 no-repeat transparent;
+    background: url("../../../doca_base/doca_common/dist/images/question-grey.png") 0 0 no-repeat transparent;
   }
   &[aria-expanded="true"], &[aria-expanded="true"]:focus {
-    background-image: url("../images/question-grey.png");
+    background-image: url("../../../doca_base/doca_common/dist/images/question-grey.png");
   }
 }
 
