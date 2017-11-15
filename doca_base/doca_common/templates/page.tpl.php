@@ -155,7 +155,7 @@
     <?php if (theme_get_setting('external_link_enable_popup') == 1): ?>
       <!-- External link popup window -->
       <div id="external-link-popup-content" class="external-link-popup mfp-hide">
-        <h2>Goodbye</h2>
+        <h2>Thanks for visiting</h2>
         <div class="external-link-popup__content">
           <?php
           print theme_get_setting('external_link_popup_text');

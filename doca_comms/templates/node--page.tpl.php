@@ -32,6 +32,11 @@
 
 <div class="layout-sidebar layout-max spacer">
   <div class="layout-sidebar__main">
+    <?php if (isset($content['field_image_with_caption'])): ?>
+      <div class="spacer--bottom-large">
+        <?php print render($content['field_image_with_caption']); ?>
+      </div>
+    <?php endif; ?>
     <?php print render($content['body']); ?>
   </div>
   <?php if (isset($content['related_content'])): ?>
@@ -42,6 +47,8 @@
 </div>
 
 <?php print render($content['field_entity_content']); ?>
+
+<?php print render($content['field_para_qna']); ?>
 
 <?php print render($content['field_stackla_embed_para']); ?>
 
