@@ -505,7 +505,7 @@ function doca_common_preprocess_entity(&$variables, $hook) {
           'alertFullName' => $variables['field_single_full_name'][0]['value'],
           'alertHideNumber' => $variables['field_hide_contact_number_field'][0]['value'],
           'alertMailGroup' => $variables['field_mail_groups'][0]['value'],
-          'microSite' => variable_get('doca_common_micro_site', 'https://suite.peoplelogic.com.au'),
+          'microSite' => variable_get('doca_common_micro_site', 'https://edm.arts.gov.au'),
           'apicall' => variable_get('doca_common_api_call', 'updateall'),
           'errorMessage' => variable_get('doca_common_error_message', t('Please check your email address and try again, if you are still having issues please <a href="mailto:media@communications.gov.au?Subject=Arts website newsletter subscriber">email us</a> your details.')),
           'alertSuccessMessage' => $variables['field_success_message'][0]['value'],
