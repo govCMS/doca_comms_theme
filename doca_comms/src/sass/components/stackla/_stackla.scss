@@ -5,6 +5,7 @@
 // Styleguide components.spacer
 %stacklafw, .stacklafw {
   padding: 1rem;
+  height: auto !important; //override slackla height
   @include breakpoint($medium) {
     padding-top: 3rem;
   }
