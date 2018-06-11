@@ -160,6 +160,22 @@ function doca_common_form_alter(&$form, &$form_state, $form_id) {
 function doca_common_js_alter(&$javascript) {
   $tabs_js_path = drupal_get_path('module', 'field_group') . '/horizontal-tabs/horizontal-tabs.js';
   unset($javascript[$tabs_js_path]);
+
+  // jQuery update.
+  $node_replace_paths = [
+    'media-centre/media-gallery',
+  ];
+  $replace_jquery = FALSE;
+  foreach ($node_replace_paths as $node_replace_path) {
+    if (drupal_match_path(current_path(), $node_replace_path)) {
+      $replace_jquery = TRUE;
+    }
+  }
+  // Swap out jQuery to use an updated version of the library.
+  if ($replace_jquery) {
+    $javascript['misc/jquery.js']['data'] = path_to_theme() . '/../doca_base/doca_common/vendor/js/jquery-1.11.3.min.js';
+    $javascript['misc/jquery.js']['version'] = '1.11.3';
+  }
 }
 
 /**

@@ -27,6 +27,7 @@ scripts[] = vendor/js/bower-components.min.js
 scripts[] = vendor/js/components.min.js
 scripts[] = vendor/js/tablesaw.js
 scripts[] = vendor/js/jquery-noconflict.js
+scripts[] = vendor/js/modaal.min.js
 
 
 regions[highlighted] = Highlighted
