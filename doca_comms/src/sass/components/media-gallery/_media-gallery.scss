@@ -1,0 +1,56 @@
+.page-media-centre-media-gallery {
+  .media-item {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0 15px 10px;
+    min-height: 390px;
+
+    .field-name-field-pbundle-image-caption {
+      padding: 10px;
+      font-weight: 500;
+    }
+
+    a.modaal-gallery {
+      color: color(grey-dark);
+
+      &:hover {
+        color: color(dark);
+      }
+
+      position: relative;
+      display: block;
+      border-bottom: none;
+      height: 100%;
+
+      &:hover {
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 50px;
+          width: 50px;
+          background: url("../../../doca_base/doca_common/dist/images/zoom.png") 0 0 no-repeat rgba(color(black), 0.75);
+          background-size: 50px;
+        }
+      }
+    }
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      width: 100%;
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      width: 50%;
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+      width: 33.33%;
+    }
+
+  }
+}
