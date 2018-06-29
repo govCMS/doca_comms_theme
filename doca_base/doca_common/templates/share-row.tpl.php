@@ -9,7 +9,8 @@
   <ul class="share-row__bordered">
     <li class="share-row__item"><?php print t('Share:'); ?></li>
     <li class="share-row__item">
-      <a class="link-external__no-icon" target="_blank" href="http://www.facebook.com/share.php?u=<?php print $url; ?>">
+      <a class="link-external__no-icon" aria-label="share on Facebook" target="_blank" href="http://www.facebook.com/share.php?u=<?php print $url; ?>">
+        <span class="sr-only">on Facebook</span>
         <svg class="share-row__svg" width="1792" height="1792" viewBox="0 0 1792 1792"
              xmlns="http://www.w3.org/2000/svg">
           <path
@@ -18,8 +19,9 @@
       </a>
     </li>
     <li class="share-row__item">
-      <a class="link-external__no-icon" target="_blank" rel="nofollow"
+      <a class="link-external__no-icon" aria-label="share on Twitter" target="_blank" rel="nofollow"
          href="http://twitter.com/intent/tweet?status=<?php print $title; ?>+<?php print $url; ?>">
+        <span class="sr-only">on Twitter</span>
         <svg class="share-row__svg" width="1792" height="1792" viewBox="0 0 1792 1792"
              xmlns="http://www.w3.org/2000/svg">
           <path
@@ -28,7 +30,8 @@
       </a>
     </li>
     <li class="share-row__item">
-      <a class="link-external__no-icon" target="_blank" href="https://plus.google.com/share?url=<?php print $url; ?>">
+      <a class="link-external__no-icon" aria-label="share on Google Plus" target="_blank" href="https://plus.google.com/share?url=<?php print $url; ?>">
+        <span class="sr-only">on Google Plus</span>
         <svg class="share-row__svg" width="1792" height="1792" viewBox="0 0 1792 1792"
              xmlns="http://www.w3.org/2000/svg">
           <path

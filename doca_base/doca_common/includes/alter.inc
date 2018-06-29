@@ -176,8 +176,11 @@ function doca_common_js_alter(&$javascript) {
     $replace_jquery = TRUE;
   }
   // Swap out jQuery to use an updated version of the library.
+  // path_to_theme() returns path to active theme rather than base theme and
+  // thanks to Acquia Site Factory directory structure, we will have to use
+  // a symlink here...
   if ($replace_jquery) {
-    $javascript['misc/jquery.js']['data'] = path_to_theme() . '/../doca_base/doca_common/vendor/js/jquery-1.11.3.min.js';
+    $javascript['misc/jquery.js']['data'] = path_to_theme() . '/vendor/js/jquery-1.11.3.min.js';
     $javascript['misc/jquery.js']['version'] = '1.11.3';
   }
 }
