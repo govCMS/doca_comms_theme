@@ -17,7 +17,10 @@
       <?php foreach ($items as $delta => $item): ?>
         <div
           class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php if (isset($item_attributes['client-block-' . $form_id])): print $item_attributes['client-block-' . $form_id];endif; ?>>
-          <?php print module_invoke('webform', 'block_view', 'client-block-' . $form_id)['content']; ?></div>
+          <?php
+            $hys_form_block = module_invoke('webform', 'block_view', 'client-block-' . $form_id);
+            print render($hys_form_block['content']);
+          ?></div>
       <?php endforeach; ?>
     </div>
   </div>
