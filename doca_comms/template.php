@@ -195,3 +195,15 @@ function dcomms_theme_ds_pre_render_alter(&$layout_render_array, $context, &$var
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function dcomms_theme_preprocess_page(&$variables, $hook) {
+  // Template suggestion - page--node_type. We could put this in the common
+  // theme, however the requirements are unique to the Comms site.
+  if (isset($variables['node']->type)) {
+    $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
+    $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type . '__' . arg(1);
+  }
+}
