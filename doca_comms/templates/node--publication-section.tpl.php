@@ -39,10 +39,20 @@ endif;
         <?php print render($content['field_image_with_caption']); ?>
       </div>
     <?php endif; ?>
-    <?php print render($content['body']); ?>
+    <?php
+        // We'd like to be able to use a token in the markup to point to
+        // the correct directory where the public files are stored.
+        $path_to_public_files = variable_get('file_public_path', 'sites/default/files');
+        $search = array('[path_to_public_files]', '%5Bpath_to_public_files%5D');
+        $replace = array($path_to_public_files, $path_to_public_files);
+        $body = str_replace($search, $replace, render($content['body']));
+        print $body;
+    ?>
 
     <?php if (!empty($content['book_navigation'])): ?>
-        <?php print render($content['book_navigation']); ?>
+        <div class="book-navigation-under-body">
+          <?php print render($content['book_navigation']); ?>
+        </div>
     <?php endif; ?>
 
     <?php if (isset($content['related_content'])): ?>
