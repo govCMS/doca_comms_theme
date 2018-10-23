@@ -20,6 +20,8 @@ h6 {
     & > li {
       position: relative;
       padding-left: 16px;
+      margin-bottom: .5rem;
+
       &:before {
         content: " ";
         background: url(../../images/arrow.svg);
