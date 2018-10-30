@@ -288,12 +288,18 @@ h6 {
     h3 {
       font-size: 1.5rem;
       font-weight: 300;
+      color: white;
+      background: url(../../images/case-study-heading-bg.png) no-repeat 0 0;
+      padding: 2rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      background-size: cover;
     }
 
     .casestudy-mark {
       font-weight: 400;
       text-transform: uppercase;
-      padding-bottom: .5rem;
+      padding-bottom: 1rem;
     }
 
     p:last-of-type {
