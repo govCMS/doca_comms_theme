@@ -190,8 +190,7 @@ h6 {
         padding-left: 16px;
         &:before {
           content: " ";
-          background: url(../../images/arrow.svg);
-          background-repeat: no-repeat;
+          background: url(../../images/arrow.svg) no-repeat;
           height: 16px;
           width: 16px;
           position: absolute;
@@ -233,6 +232,9 @@ h6 {
       height: 20px;
       padding-bottom: 5px;
     }
+    .total-mark {
+      float: right;
+    }
   }
   table.report-table-no-border {
     tr td {
@@ -241,6 +243,7 @@ h6 {
   }
   th, td {
     padding: 1em;
+    vertical-align: top;
   }
   tr td {
     border-bottom: 2px solid #BCBDC0;
@@ -288,7 +291,8 @@ h6 {
     }
 
     .casestudy-mark {
-      font-size: 1.1rem;
+      font-weight: 400;
+      text-transform: uppercase;
       padding-bottom: .5rem;
     }
 
@@ -302,19 +306,12 @@ h6 {
       padding-left: 40px;
       max-width: 50%;
       margin-top: 2rem;
+      font-style: normal;
+      background: url(../../images/quotes.png) no-repeat 0 0;
+      background-size: 24px;
 
       @include small-screens() {
         max-width: 90%;
-      }
-
-      &::before {
-        color: #081D3E;
-        font-family: Arial;
-        content: "\201C";
-        font-size:4rem;
-        position: absolute;
-        left: 0px;
-        top: 5px;
       }
     }
 
